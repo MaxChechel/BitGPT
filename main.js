@@ -3,6 +3,7 @@ import { ScrollTrigger } from 'gsap/all';
 
 import chatAnimation from './components/chatAnimation';
 import agentAnimation from './components/agentAnimation';
+import llmAnimation from './components/llmAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,4 +81,17 @@ ScrollTrigger.create({
         agentAnimation();
     },
 });
+//////////////////
+
+///////LLM/////////
+ScrollTrigger.create({
+    trigger: '[data-llm-animation]',
+    start: 'top 50%',
+    end: 'top 0%',
+    invalidateOnRefresh: true,
+    onEnter: () => {
+        llmAnimation();
+    },
+});
+
 //////////////////
