@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/all';
 import chatAnimation from './components/chatAnimation';
 import agentAnimation from './components/agentAnimation';
 import llmAnimation from './components/llmAnimation';
+import scanAnimation from './components/scanAnimation';
+import fraudAnimation from './components/fraudAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,3 +97,14 @@ ScrollTrigger.create({
 });
 
 //////////////////
+///////Security///////
+ScrollTrigger.create({
+    trigger: '[data-security-animation]',
+    start: 'top 50%',
+    end: 'top 0%',
+    invalidateOnRefresh: true,
+    onEnter: () => {
+        scanAnimation();
+        fraudAnimation();
+    },
+});
