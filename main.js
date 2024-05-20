@@ -6,7 +6,10 @@ import agentAnimation from './components/agentAnimation';
 import llmAnimation from './components/llmAnimation';
 import scanAnimation from './components/scanAnimation';
 import fraudAnimation from './components/fraudAnimation';
-
+import computeAnimation from './components/computeAnimation';
+import contributeAnimation from './components/contributeAnimation';
+import vectorStorageAnimation from './components/vectorStorageAnimations';
+import evaluateAnimation from './components/evaluateAnimation';
 gsap.registerPlugin(ScrollTrigger);
 
 const slider = document.querySelector('.horizontal-scroll_track');
@@ -41,6 +44,16 @@ ScrollTrigger.create({
     pin: true,
 });
 
+ScrollTrigger.create({
+    trigger: '.horizontal-scroll_track',
+    start: 'top 50%',
+    end: 'top 0%',
+    invalidateOnRefresh: true,
+    onEnter: () => {
+        evaluateAnimation();
+    },
+});
+
 sliderCards.forEach((slide, index) => {
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -51,6 +64,14 @@ sliderCards.forEach((slide, index) => {
             end: 'right 100%',
             toggleActions: 'play none none reverse',
             invalidateOnRefresh: true,
+            onEnter: () => {
+                if (slide.getAttribute('data-animation-card') === 'contribute')
+                    contributeAnimation();
+                if (slide.getAttribute('data-animation-card') === 'vector')
+                    vectorStorageAnimation();
+                if (slide.getAttribute('data-animation-card') === 'compute')
+                    computeAnimation();
+            },
         },
     });
 
@@ -108,3 +129,5 @@ ScrollTrigger.create({
         fraudAnimation();
     },
 });
+
+/////Compute animation////////

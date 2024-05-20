@@ -1,8 +1,11 @@
 import gsap from 'gsap';
-
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 export default function chatAnimation() {
     const chat = document.querySelector('.chat-animation');
-    const chatTl = gsap.timeline({ defaults: { ease: 'circ.out' } });
+    const chatTl = gsap.timeline({
+        defaults: { ease: 'circ.out' },
+    });
 
     chatTl
         .to("[data-chat-1='img-1']", {
