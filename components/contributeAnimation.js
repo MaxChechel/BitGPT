@@ -33,4 +33,30 @@ export default function contributeAnimation() {
             .to(svg, { drawSVG: '100% 100%' });
         tween.play();
     });
+
+    const scaleTl = gsap.timeline();
+    scaleTl
+        .to('.contribute-a_door:not(.is-right)', {
+            x: '-75%',
+            duration: 2,
+            ease: 'circ.out',
+        })
+        .to(
+            '.contribute-a_door.is-right',
+            {
+                x: '75%',
+                duration: 2,
+                ease: 'circ.out',
+            },
+            '<0%'
+        )
+        .to(
+            '.contribute-a_pulses-wrap',
+            {
+                scale: 1,
+                duration: 4,
+                ease: 'power2.out',
+            },
+            '<40%'
+        );
 }

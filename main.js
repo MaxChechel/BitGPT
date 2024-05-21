@@ -131,3 +131,20 @@ ScrollTrigger.create({
 });
 
 /////Compute animation////////
+
+const tween = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 0,
+});
+tween
+    .fromTo(
+        '.btn-border-path',
+        {
+            ease: 'none',
+            drawSVG: 0,
+            opacity: 0,
+        },
+        { drawSVG: '50% 100%', opacity: 1, duration: 1, ease: 'sine.in' }
+    )
+    .to('.btn-border-path', { drawSVG: '100% 150%', opacity: 0 });
+tween.play();

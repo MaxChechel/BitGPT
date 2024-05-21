@@ -20,7 +20,10 @@ export default function computeAnimation() {
             yPercent: -50, // Center vertically
             transformOrigin: '50% 50%', // Set the transform origin to the center
         });
-
+        gsap.to('.compute-line', {
+            opacity: 1,
+            duration: 0.5,
+        });
         const tween = gsap.to(line, {
             motionPath: {
                 path: path,

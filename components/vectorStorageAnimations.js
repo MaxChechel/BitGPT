@@ -35,14 +35,14 @@ export default function vectorStorageAnimation() {
         .to('.vector-a_arrow-1', { opacity: 1, maxWidth: '5%', duration: 0.7 })
         .to('.vector-a_embed', { opacity: 1, maxWidth: '23%', duration: 1.4 })
         .to('.vector-a_arrow-2', { opacity: 1, maxWidth: '5%', duration: 0.7 })
-        .to('.vector-a_database', {
+        .to('.vector-a_database-wrap', {
             opacity: 1,
             maxWidth: '18%',
             duration: 2,
         })
         .to('.vector-a_arrow-3', {
             opacity: 1,
-            maxWidth: '70%',
+            maxWidth: '340%',
             duration: 1.4,
         });
 }
