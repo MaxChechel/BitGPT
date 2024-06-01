@@ -10,34 +10,36 @@ export default function chatAnimation() {
     const img1Height = document.querySelector(
         "[data-chat-1='img-1-1']"
     ).offsetHeight;
-
+    const img2Height = document.querySelector(
+        "[data-chat-3='graph-1']"
+    ).offsetHeight;
     chatTl
         .to("[data-chat-1='img-1']", {
             delay: 1,
             duration: 0.5,
-            height: `${img1Height}px`,
+            height: img1Height,
             opacity: 1,
         })
-        // .to("[data-chat='2']", {
-        //     delay: 0.8,
-        //     marginBottom: 0,
-        //     height: 'auto',
-        //     duration: 0.4,
-        // })
-        // .to(
-        //     "[data-chat-2='msg']",
-        //     {
-        //         opacity: 1,
-        //         duration: 0.4,
-        //     },
-        //     '<0%'
-        // )
-        // .to("[data-chat='3']", {
-        //     delay: 0.8,
-        //     marginBottom: 0,
-        //     height: 'auto',
-        //     duration: 0.4,
-        // })
+        .to("[data-chat='2']", {
+            delay: 0.8,
+            marginBottom: 0,
+            height: 'auto',
+            duration: 0.4,
+        })
+        .to(
+            "[data-chat-2='msg']",
+            {
+                opacity: 1,
+                duration: 0.4,
+            },
+            '<0%'
+        )
+        .to("[data-chat='3']", {
+            delay: 0.8,
+            marginBottom: 0,
+            height: img2Height,
+            duration: 0.4,
+        })
         .add(() => {
             const tl = gsap.timeline();
             const bubblesTl = gsap.timeline({ repeat: -1 });
