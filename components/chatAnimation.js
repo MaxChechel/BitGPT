@@ -11,8 +11,7 @@ export default function chatAnimation() {
         .to("[data-chat-1='img-1']", {
             delay: 1,
             duration: 0.5,
-            willChange: 'height',
-            height: 'auto',
+            maxHeight: 'none',
             opacity: 1,
         })
         .to("[data-chat='2']", {
