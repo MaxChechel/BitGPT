@@ -37,14 +37,14 @@ export default function agentAnimation() {
     agentTl
         .to("[data-agent='1']", {
             delay: 0.8,
-            marginBottom: 0,
+            marginBottom: 12,
             height: 'auto',
             duration: 0.4,
             opacity: 1,
         })
         .to("[data-agent='2']", {
             delay: 0.8,
-            marginBottom: 0,
+            marginBottom: 12,
             height: 'auto',
             duration: 0.4,
             opacity: 1,
@@ -71,14 +71,14 @@ export default function agentAnimation() {
             )
             .to("[data-agent='3']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 height: 'auto',
                 duration: 0.4,
                 opacity: 1,
             })
             .to("[data-agent='4']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 height: 'auto',
                 duration: 0.4,
                 opacity: 1,
@@ -119,17 +119,18 @@ export default function agentAnimation() {
             })
             .to("[data-agent-2='1']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 opacity: 1,
                 height: 'auto',
                 duration: 0.4,
             })
+            .to("[data-agent-2='1']", { overflow: 'visible', duration: 0 })
             .to('.agent-a-2_cursor', {
                 delay: 0.2,
                 opacity: 1,
             })
             .to('.agent-a-2_cursor', {
-                top: '40%',
+                top: '0',
                 duration: 0.5,
             })
             .to(
@@ -148,6 +149,7 @@ export default function agentAnimation() {
                 scale: 1,
                 duration: 0.1,
             })
+            .to("[data-agent-2='1']", { overflow: 'hidden', duration: 0 })
             .to("[data-agent-2='1']", {
                 opacity: 0,
                 height: 0,
@@ -163,28 +165,28 @@ export default function agentAnimation() {
             )
             .to("[data-agent-2='2']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 height: 'auto',
                 duration: 0.4,
                 opacity: 1,
             })
             .to("[data-agent-2='3']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 height: 'auto',
                 duration: 0.4,
                 opacity: 1,
             })
             .to("[data-agent-2='4']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 height: 'auto',
                 duration: 0.4,
                 opacity: 1,
             })
             .to("[data-agent-2='5']", {
                 delay: 0.8,
-                marginBottom: 0,
+                marginBottom: 12,
                 height: 'auto',
                 duration: 0.4,
                 opacity: 1,
