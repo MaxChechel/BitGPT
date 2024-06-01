@@ -6,48 +6,38 @@ export default function chatAnimation() {
     const chatTl = gsap.timeline({
         defaults: { ease: 'circ.out' },
     });
-    gsap.set("[data-chat-1='img-1']", {
-        height: 'auto',
-    });
-    gsap.set("[data-chat-1='img-1-1']", {
-        height: 0,
-    });
+
+    const img1Height = document.querySelector(
+        "[data-chat-1='img-1-1']"
+    ).offsetHeight;
+
     chatTl
-        // .to("[data-chat-1='img-1']", {
-        //     delay: 1,
-        //     duration: 0.5,
+        .to("[data-chat-1='img-1']", {
+            delay: 1,
+            duration: 0.5,
+            height: `${img1Height}px`,
+            opacity: 1,
+        })
+        // .to("[data-chat='2']", {
+        //     delay: 0.8,
+        //     marginBottom: 0,
         //     height: 'auto',
-        //     opacity: 1,
+        //     duration: 0.4,
         // })
-        .to(
-            "[data-chat-1='img-1-1']",
-            {
-                duration: 0.5,
-                height: 'auto',
-                opacity: 1,
-            },
-            '<0%'
-        )
-        .to("[data-chat='2']", {
-            delay: 0.8,
-            marginBottom: 0,
-            height: 'auto',
-            duration: 0.4,
-        })
-        .to(
-            "[data-chat-2='msg']",
-            {
-                opacity: 1,
-                duration: 0.4,
-            },
-            '<0%'
-        )
-        .to("[data-chat='3']", {
-            delay: 0.8,
-            marginBottom: 0,
-            height: 'auto',
-            duration: 0.4,
-        })
+        // .to(
+        //     "[data-chat-2='msg']",
+        //     {
+        //         opacity: 1,
+        //         duration: 0.4,
+        //     },
+        //     '<0%'
+        // )
+        // .to("[data-chat='3']", {
+        //     delay: 0.8,
+        //     marginBottom: 0,
+        //     height: 'auto',
+        //     duration: 0.4,
+        // })
         .add(() => {
             const tl = gsap.timeline();
             const bubblesTl = gsap.timeline({ repeat: -1 });
