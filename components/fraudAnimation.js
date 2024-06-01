@@ -34,14 +34,14 @@ export default function fraudAnimation() {
     fraudTl
         .to("[data-fraud='1']", {
             delay: 3.2,
-            marginBottom: 0,
+            marginBottom: 12,
             height: 'auto',
             opacity: 1,
             duration: 0.4,
         })
         .to("[data-fraud='2']", {
             delay: 0.8,
-            marginBottom: 0,
+            marginBottom: 12,
             height: 'auto',
             opacity: 1,
             duration: 0.4,
