@@ -38,7 +38,7 @@ export default function chatAnimation() {
         .to("[data-chat='3']", {
             delay: 0.8,
             marginBottom: 0,
-            height: img2Height,
+            gridTemplateRows: '1fr',
             duration: 0.4,
         })
         .add(() => {
