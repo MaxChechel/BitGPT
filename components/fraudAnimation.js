@@ -24,7 +24,6 @@ export default function fraudAnimation() {
                 onComplete: () => {
                     repeatCount++;
                     if (repeatCount === 3) {
-                        bubblesTl.kill();
                         callbackFunc();
                     }
                 },
