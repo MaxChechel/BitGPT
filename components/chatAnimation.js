@@ -10,6 +10,8 @@ export default function chatAnimation() {
     chatTl
         .to("[data-chat-1='img-1']", {
             delay: 1,
+            duration: 0.5,
+            willChange: 'height',
             height: 'auto',
             opacity: 1,
         })
