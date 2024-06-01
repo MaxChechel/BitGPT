@@ -6,14 +6,28 @@ export default function chatAnimation() {
     const chatTl = gsap.timeline({
         defaults: { ease: 'circ.out' },
     });
-
+    gsap.set("[data-chat-1='img-1']", {
+        height: 'auto',
+    });
+    gsap.set("[data-chat-1='img-1-1']", {
+        height: 0,
+    });
     chatTl
-        .to("[data-chat-1='img-1']", {
-            delay: 1,
-            duration: 0.5,
-            maxHeight: 'none',
-            opacity: 1,
-        })
+        // .to("[data-chat-1='img-1']", {
+        //     delay: 1,
+        //     duration: 0.5,
+        //     height: 'auto',
+        //     opacity: 1,
+        // })
+        .to(
+            "[data-chat-1='img-1-1']",
+            {
+                duration: 0.5,
+                height: 'auto',
+                opacity: 1,
+            },
+            '<0%'
+        )
         .to("[data-chat='2']", {
             delay: 0.8,
             marginBottom: 0,
