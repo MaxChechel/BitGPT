@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 export default function scanAnimation() {
-    const scanTl = gsap.timeline({ repeat: -1 });
+    const scanTl = gsap.timeline({ repeat: -1, paused: true });
 
     scanTl
         .to('.scan-a_overlay', {

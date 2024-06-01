@@ -27,7 +27,6 @@ export default function agentAnimation() {
                 onComplete: () => {
                     repeatCount++;
                     if (repeatCount === 3) {
-                        //     bubblesTl.kill();
                         callbackFunc();
                     }
                 },

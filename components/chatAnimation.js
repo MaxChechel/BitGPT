@@ -17,7 +17,6 @@ export default function chatAnimation() {
         .to("[data-chat-1='img-1']", {
             delay: 1,
             duration: 0.5,
-            //height: img1Height,
             gridTemplateRows: '1fr',
             opacity: 1,
         })
@@ -38,12 +37,12 @@ export default function chatAnimation() {
         .to("[data-chat='3']", {
             delay: 0.8,
             marginBottom: 0,
-            gridTemplateRows: '1fr',
+            height: 'auto',
             duration: 0.4,
         })
         .add(() => {
             const tl = gsap.timeline();
-            const bubblesTl = gsap.timeline({ repeat: -1 });
+            const bubblesTl = gsap.timeline({ repeat: 2 });
             const bubbles = chat.querySelectorAll('.chat-bubbles');
             let repeatCount = 0;
 
@@ -52,19 +51,16 @@ export default function chatAnimation() {
                     yPercent: -40,
                     duration: 0.2,
                     stagger: { each: 0.05 },
+                    ease: 'none',
                 })
                 .to(bubbles, {
                     delay: 0.05,
                     yPercent: 0,
                     duration: 0.2,
-                    yoyo: true,
                     stagger: { each: 0.05 },
                     onComplete: function () {
                         repeatCount++;
-                        // Add another animation after 3 repeats
                         if (repeatCount === 3) {
-                            // Your next animation here
-                            bubblesTl.kill();
                             tl.to(
                                 '.chat-animation .chat-a_chat-wrap.is-bubbles',
                                 {
@@ -98,7 +94,7 @@ export default function chatAnimation() {
                                     delay: 0.6,
                                     opacity: 1,
                                     marginBottom: 0,
-                                    height: 'auto',
+                                    gridTemplateRows: '1fr',
                                     duration: 0.4,
                                 });
                         }

@@ -5,7 +5,7 @@ export default function fraudAnimation() {
     const fraudTl = gsap.timeline({ defaults: { ease: 'circ.out' } });
 
     function chatBubbles(bubbleContainer, callbackFunc) {
-        const bubblesTl = gsap.timeline({ repeat: -1 });
+        const bubblesTl = gsap.timeline({ repeat: 2 });
         const bubbles = document
             .querySelector(`${bubbleContainer}`)
             .querySelectorAll('.chat-bubbles');
@@ -20,7 +20,6 @@ export default function fraudAnimation() {
             .to(bubbles, {
                 yPercent: 0,
                 duration: 0.2,
-                yoyo: true,
                 stagger: { each: 0.05 },
                 onComplete: () => {
                     repeatCount++;
