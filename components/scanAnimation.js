@@ -5,7 +5,7 @@ export default function scanAnimation() {
 
     scanTl
         .to('.scan-a_overlay', {
-            width: '0%',
+            xPercent: '105%',
             duration: 2.5,
             ease: 'none',
         })
@@ -49,7 +49,7 @@ export default function scanAnimation() {
             duration: 0,
         })
         .to('.scan-a_overlay', {
-            width: '105%',
+            xPercent: '0%',
             opacity: 0,
             duration: 0,
         })
