@@ -119,17 +119,41 @@ ScrollTrigger.create({
 
 //////////////////
 ///////Security///////
+// ScrollTrigger.create({
+//     trigger: '[data-security-animation]',
+//     start: 'top 50%',
+//     end: 'top 0%',
+//     invalidateOnRefresh: true,
+//     onEnter: () => {
+//         const tl = scanAnimation();
+//         ScrollTrigger.create({
+//             trigger: '[data-security-animation]',
+//             start: 'top 50%',
+//             end: 'bottom 0%',
+//             onEnter: () => tl.resume(),
+//             onLeave: () => tl.pause(),
+//             onEnterBack: () => tl.resume(),
+//             onLeaveBack: () => tl.pause(),
+//         });
+//     },
+// });
+const scanTl = scanAnimation();
+
 ScrollTrigger.create({
     trigger: '[data-security-animation]',
     start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        scanAnimation();
-        fraudAnimation();
-    },
+    end: 'bottom 0%',
+    onEnter: () => scanTl.resume(),
+    onLeave: () => scanTl.pause(),
+    onEnterBack: () => scanTl.resume(),
+    onLeaveBack: () => scanTl.pause(),
 });
-
+ScrollTrigger.create({
+    trigger: '[data-security-animation]',
+    start: 'top 50%',
+    end: 'bottom 0%',
+    onEnter: () => fraudAnimation(),
+});
 /////Compute animation////////
 
 const tween = gsap.timeline({

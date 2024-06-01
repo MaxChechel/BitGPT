@@ -40,9 +40,14 @@ export default function chatAnimation() {
             let repeatCount = 0;
 
             bubblesTl
-                .to(bubbles, { y: -4, duration: 0.2, stagger: { each: 0.05 } })
                 .to(bubbles, {
-                    y: 0,
+                    yPercent: -40,
+                    duration: 0.2,
+                    stagger: { each: 0.05 },
+                })
+                .to(bubbles, {
+                    delay: 0.05,
+                    yPercent: 0,
                     duration: 0.2,
                     yoyo: true,
                     stagger: { each: 0.05 },

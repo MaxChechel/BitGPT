@@ -6,23 +6,28 @@ export default function agentAnimation() {
 
     // Function for animating chat bubbles of agent 2 (repeating and final)
     function chatBubbles(bubbleContainer, callbackFunc) {
-        const bubblesTl = gsap.timeline({ repeat: -1 });
+        const bubblesTl = gsap.timeline({ repeat: 2 });
         const bubbles = document
             .querySelector(`${bubbleContainer}`)
             .querySelectorAll('.chat-bubbles');
 
         let repeatCount = 0;
         bubblesTl
-            .to(bubbles, { y: -4, duration: 0.2, stagger: { each: 0.05 } })
             .to(bubbles, {
-                y: 0,
+                yPercent: -40,
                 duration: 0.2,
-                yoyo: true,
+                stagger: { each: 0.05 },
+                ease: 'none',
+            })
+            .to(bubbles, {
+                delay: 0.05,
+                yPercent: 0,
+                duration: 0.2,
                 stagger: { each: 0.05 },
                 onComplete: () => {
                     repeatCount++;
                     if (repeatCount === 3) {
-                        bubblesTl.kill();
+                        //     bubblesTl.kill();
                         callbackFunc();
                     }
                 },
@@ -36,12 +41,14 @@ export default function agentAnimation() {
             marginBottom: 0,
             height: 'auto',
             duration: 0.4,
+            opacity: 1,
         })
         .to("[data-agent='2']", {
             delay: 0.8,
             marginBottom: 0,
             height: 'auto',
             duration: 0.4,
+            opacity: 1,
             onComplete: () => {
                 chatBubbles("[data-agent='2']", animateSecondAgentAnimations);
             },
@@ -68,12 +75,14 @@ export default function agentAnimation() {
                 marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
+                opacity: 1,
             })
             .to("[data-agent='4']", {
                 delay: 0.8,
                 marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
+                opacity: 1,
                 onComplete: () => {
                     chatBubbles(
                         '[data-agent="4"]',
@@ -125,18 +134,18 @@ export default function agentAnimation() {
                 duration: 0.5,
             })
             .to(
-                '.agent-a-2_suggested-capsule.is-active',
+                '.agent-a-2_suggested-wrap .message.is-active',
                 {
                     background: 'rgba(255,255,255,.92)',
                     color: '#04070D',
                 },
                 '<80%'
             )
-            .to('.agent-a-2_suggested-capsule.is-active', {
+            .to('.agent-a-2_suggested-wrap .message.is-active', {
                 scale: 1.01,
                 duration: 0.2,
             })
-            .to('.agent-a-2_suggested-capsule.is-active', {
+            .to('.agent-a-2_suggested-wrap .message.is-active', {
                 scale: 1,
                 duration: 0.1,
             })
@@ -158,24 +167,28 @@ export default function agentAnimation() {
                 marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
+                opacity: 1,
             })
             .to("[data-agent-2='3']", {
                 delay: 0.8,
                 marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
+                opacity: 1,
             })
             .to("[data-agent-2='4']", {
                 delay: 0.8,
                 marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
+                opacity: 1,
             })
             .to("[data-agent-2='5']", {
                 delay: 0.8,
                 marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
+                opacity: 1,
                 onComplete: () => {
                     chatBubbles(
                         '[data-agent-2="5"]',
