@@ -19,7 +19,7 @@ export default function evaluateAnimation() {
             '.evaluate-a_arrow.is-1',
             {
                 opacity: 1,
-                maxWidth: '2rem',
+                maxWidth: '1.5rem',
                 duration: 0.7,
             },
             '<0%'
@@ -39,7 +39,7 @@ export default function evaluateAnimation() {
         )
         .to('.evaluate-a_arrow.is-2', {
             opacity: 1,
-            maxWidth: '2rem',
+            maxWidth: '1.5rem',
             duration: 0.7,
         })
         .to('.evaluate-a_llm', {
@@ -49,7 +49,7 @@ export default function evaluateAnimation() {
         })
         .to('.evaluate-a_arrows-wrap', {
             opacity: 1,
-            maxWidth: '14%',
+            maxWidth: '12%',
             duration: 1.4,
         })
         .to('.evaluate-a_dataset', {

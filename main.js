@@ -166,13 +166,13 @@ ScrollTrigger.create({
     end: 'bottom 0%',
     onEnter: () => fraudAnimation(),
 });
-/////Compute animation////////
 
-const tween = gsap.timeline({
+/////Decentralized Model Registry////////
+const btnGlowtween = gsap.timeline({
     repeat: -1,
     repeatDelay: 0,
 });
-tween
+btnGlowtween
     .fromTo(
         '.btn-border-path',
         {
@@ -182,5 +182,31 @@ tween
         },
         { drawSVG: '50% 100%', opacity: 1, duration: 1, ease: 'sine.in' }
     )
-    .to('.btn-border-path', { drawSVG: '100% 150%', opacity: 0 });
-tween.play();
+    .to('.btn-border-path', { drawSVG: '100% 150%', opacity: 0 })
+    .to(
+        '.btn-bg-path',
+        {
+            fillOpacity: 0.1,
+            duration: 1,
+        },
+        0
+    )
+    .to('.btn-bg-path', {
+        fillOpacity: 0.08,
+        duration: 1,
+    });
+btnGlowtween.play();
+
+///////Footer logo
+ScrollTrigger.create({
+    trigger: '.footer_bottom-img',
+    start: 'top 90%',
+    end: 'top 80%',
+    onEnter: () => {
+        gsap.to('.footer-logo-letter', {
+            y: '0%',
+            opacity: 1,
+            stagger: { each: 0.05 },
+        });
+    },
+});

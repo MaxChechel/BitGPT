@@ -56,13 +56,31 @@ export default function fraudAnimation() {
         tl.to('.fraud-a_modals-wrapper', {
             opacity: 1,
             duration: 0.6,
-        }).to(
-            '.fraud-a_modal-1',
-            {
-                opacity: 1,
-                duration: 0.4,
-            },
-            '<60%'
-        );
+        })
+            .to(
+                '.fraud-a_modal-1',
+                {
+                    opacity: 1,
+                    duration: 0.4,
+                },
+                '<60%'
+            )
+            .to(
+                '.fraud-a_modal-1',
+                {
+                    delay: 1.5,
+                    opacity: 0,
+                    duration: 0.2,
+                },
+                '<60%'
+            )
+            .to(
+                '.fraud-a_modal-2',
+                {
+                    opacity: 1,
+                    duration: 0.4,
+                },
+                '<60%'
+            );
     }
 }
