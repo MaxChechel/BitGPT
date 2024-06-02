@@ -18,11 +18,14 @@ const sliderCards = slider.querySelectorAll(
     '.horizontal-scroll_card-wrap:not(:first-child) .card-row_card'
 );
 
-gsap.set(sliderCards, {
-    scale: 0.9,
-    opacity: 0.3,
-});
+let mm = gsap.matchMedia();
 
+mm.add('(min-width: 992px)', () => {
+    gsap.set(sliderCards, {
+        scale: 0.9,
+        opacity: 0.3,
+    });
+});
 function getScrollAmount() {
     let racesWidth = slider.scrollWidth;
     return racesWidth - window.innerWidth;
@@ -33,54 +36,63 @@ const horizontalScrollTween = gsap.to(slider, {
     x: () => -slider.scrollWidth + scrollGap,
     ease: 'none',
 });
+mm.add('(min-width: 992px)', () => {
+    ScrollTrigger.create({
+        trigger: '.decentralization_slider-wrap',
+        start: 'top 0',
+        end: () => `+=${getScrollAmount()}`,
+        animation: horizontalScrollTween,
+        scrub: 1.5,
+        invalidateOnRefresh: true,
+        pin: true,
+    });
 
-ScrollTrigger.create({
-    trigger: '.decentralization_slider-wrap',
-    start: 'top 0',
-    end: () => `+=${getScrollAmount()}`,
-    animation: horizontalScrollTween,
-    scrub: 1.5,
-    invalidateOnRefresh: true,
-    pin: true,
-});
-
-ScrollTrigger.create({
-    trigger: '.horizontal-scroll_track',
-    start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        evaluateAnimation();
-    },
-});
-
-sliderCards.forEach((slide, index) => {
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            scrub: 1.5,
-            containerAnimation: horizontalScrollTween,
-            trigger: slide,
-            start: 'left 50%',
-            end: 'right 100%',
-            toggleActions: 'play none none reverse',
-            invalidateOnRefresh: true,
-            onEnter: () => {
-                if (slide.getAttribute('data-animation-card') === 'contribute')
-                    contributeAnimation();
-                if (slide.getAttribute('data-animation-card') === 'vector')
-                    vectorStorageAnimation();
-                if (slide.getAttribute('data-animation-card') === 'compute')
-                    computeAnimation();
-            },
+    ScrollTrigger.create({
+        trigger: '.horizontal-scroll_track',
+        start: 'top 50%',
+        end: 'top 0%',
+        invalidateOnRefresh: true,
+        onEnter: () => {
+            evaluateAnimation();
         },
     });
 
-    tl.to(slide, {
-        scale: 1,
-        opacity: 1,
+    sliderCards.forEach((slide, index) => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                scrub: 1.5,
+                containerAnimation: horizontalScrollTween,
+                trigger: slide,
+                start: 'left 50%',
+                end: 'right 100%',
+                toggleActions: 'play none none reverse',
+                invalidateOnRefresh: true,
+                onEnter: () => {
+                    if (
+                        slide.getAttribute('data-animation-card') ===
+                        'contribute'
+                    )
+                        contributeAnimation();
+                    if (slide.getAttribute('data-animation-card') === 'vector')
+                        vectorStorageAnimation();
+                    if (slide.getAttribute('data-animation-card') === 'compute')
+                        computeAnimation();
+                },
+            },
+        });
+
+        tl.to(slide, {
+            scale: 1,
+            opacity: 1,
+        });
     });
 });
-
+mm.add('(max-width: 991px)', () => {
+    evaluateAnimation();
+    contributeAnimation();
+    vectorStorageAnimation();
+    computeAnimation();
+});
 ////CHAT///////
 ScrollTrigger.create({
     trigger: '[data-chat-animation]',
