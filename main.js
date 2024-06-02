@@ -25,18 +25,18 @@ mm.add('(min-width: 992px)', () => {
         scale: 0.9,
         opacity: 0.3,
     });
-});
-function getScrollAmount() {
-    let racesWidth = slider.scrollWidth;
-    return racesWidth - window.innerWidth;
-}
-let scrollGap = window.innerWidth * 0.65;
 
-const horizontalScrollTween = gsap.to(slider, {
-    x: () => -slider.scrollWidth + scrollGap,
-    ease: 'none',
-});
-mm.add('(min-width: 992px)', () => {
+    function getScrollAmount() {
+        let racesWidth = slider.scrollWidth;
+        return racesWidth - window.innerWidth;
+    }
+    let scrollGap = window.innerWidth * 0.65;
+
+    const horizontalScrollTween = gsap.to(slider, {
+        x: () => -slider.scrollWidth + scrollGap,
+        ease: 'none',
+    });
+
     ScrollTrigger.create({
         trigger: '.decentralization_slider-wrap',
         start: 'top 0',
