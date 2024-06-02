@@ -88,10 +88,42 @@ mm.add('(min-width: 992px)', () => {
     });
 });
 mm.add('(max-width: 991px)', () => {
-    evaluateAnimation();
-    contributeAnimation();
-    vectorStorageAnimation();
-    computeAnimation();
+    ScrollTrigger.create({
+        trigger: "[data-animation-card='evaluate']",
+        start: 'top 50%',
+        end: 'top 0%',
+        invalidateOnRefresh: true,
+        onEnter: () => {
+            evaluateAnimation();
+        },
+    });
+    ScrollTrigger.create({
+        trigger: "[data-animation-card='contribute']",
+        start: 'top 50%',
+        end: 'top 0%',
+        invalidateOnRefresh: true,
+        onEnter: () => {
+            contributeAnimation();
+        },
+    });
+    ScrollTrigger.create({
+        trigger: "[data-animation-card='vector']",
+        start: 'top 50%',
+        end: 'top 0%',
+        invalidateOnRefresh: true,
+        onEnter: () => {
+            vectorStorageAnimation();
+        },
+    });
+    ScrollTrigger.create({
+        trigger: "[data-animation-card='compute']",
+        start: 'top 50%',
+        end: 'top 0%',
+        invalidateOnRefresh: true,
+        onEnter: () => {
+            computeAnimation();
+        },
+    });
 });
 ////CHAT///////
 ScrollTrigger.create({
@@ -130,25 +162,6 @@ ScrollTrigger.create({
 });
 
 //////////////////
-///////Security///////
-// ScrollTrigger.create({
-//     trigger: '[data-security-animation]',
-//     start: 'top 50%',
-//     end: 'top 0%',
-//     invalidateOnRefresh: true,
-//     onEnter: () => {
-//         const tl = scanAnimation();
-//         ScrollTrigger.create({
-//             trigger: '[data-security-animation]',
-//             start: 'top 50%',
-//             end: 'bottom 0%',
-//             onEnter: () => tl.resume(),
-//             onLeave: () => tl.pause(),
-//             onEnterBack: () => tl.resume(),
-//             onLeaveBack: () => tl.pause(),
-//         });
-//     },
-// });
 const scanTl = scanAnimation();
 
 ScrollTrigger.create({
