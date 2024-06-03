@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
+import gradientText from './utils/gradientText';
 import chatAnimation from './components/chatAnimation';
 import agentAnimation from './components/agentAnimation';
 import llmAnimation from './components/llmAnimation';
@@ -11,6 +12,165 @@ import contributeAnimation from './components/contributeAnimation';
 import vectorStorageAnimation from './components/vectorStorageAnimations';
 import evaluateAnimation from './components/evaluateAnimation';
 gsap.registerPlugin(ScrollTrigger);
+
+//////Hero loader
+document.fonts
+    .load('1em "Plus Jakarta Sans"')
+    .then(function () {
+        const heroTl = gsap.timeline();
+
+        heroTl
+            .to('.hero-heading .hero-span-line', {
+                delay: 0.2,
+                duration: 0.5,
+                ease: 'circ.out',
+                y: '0%',
+                opacity: 1,
+                stagger: { each: 0.025 },
+                transformOrigin: 'center bottom',
+                rotationX: 0,
+            })
+            .to(
+                '.hero_content-wrap p',
+                {
+                    duration: 0.4,
+                    ease: 'circ.out',
+                    y: '0%',
+                    opacity: 1,
+                },
+                '<25%'
+            )
+            .to(
+                '.form.is-hero',
+                {
+                    duration: 0.8,
+                    ease: 'circ.out',
+                    opacity: 1,
+                    width: '100%',
+                },
+                '<25%'
+            )
+            .to(
+                '.hero_logo',
+                {
+                    ease: 'power2.out',
+                    opacity: 1,
+                    duration: 2.8,
+                },
+                '<25%'
+            )
+            .to(
+                '.section-bg_overlay',
+                {
+                    ease: 'power2.out',
+                    opacity: 1,
+                    duration: 4,
+                    '--background-color--hero-gradient-1':
+                        'rgba(15, 15, 15, 0)',
+                },
+                '<0%'
+            );
+
+        //Section headers
+        const sectionHeaders = document.querySelectorAll(
+            '.section-heading_wrapper'
+        );
+        sectionHeaders.forEach((section) => {
+            const tag = section.querySelector('.eyebrow');
+            const heading = section.querySelector('h2');
+            const text = section.querySelector('p');
+            ScrollTrigger.create({
+                trigger: section,
+                start: 'top 60%',
+                end: 'top 50%',
+                invalidateOnRefresh: true,
+                onEnter: () => {
+                    const tl = gsap.timeline();
+
+                    tl.to(tag, {
+                        y: '0%',
+                        opacity: 1,
+                        duration: 0.4,
+                        ease: 'circ.out',
+                    })
+                        .to(
+                            heading,
+                            {
+                                opacity: 1,
+                                y: '0%',
+                                duration: 0.6,
+                                ease: 'circ.out',
+                            },
+                            '<10%'
+                        )
+                        .to(
+                            text,
+                            {
+                                opacity: 1,
+                                duration: 0.5,
+                                y: '0%',
+                                ease: 'circ.out',
+                            },
+                            '<15%'
+                        );
+                },
+            });
+        });
+        ////Pre footer cta
+        ScrollTrigger.create({
+            trigger: '.cta_card',
+            start: 'top 60%',
+            end: 'top 50%',
+            invalidateOnRefresh: true,
+            onEnter: () => {
+                const tl = gsap.timeline();
+                tl.to(
+                    '.cta_card h2',
+                    {
+                        opacity: 1,
+                        y: '0%',
+                        duration: 0.6,
+                        ease: 'circ.out',
+                    },
+                    '<10%'
+                )
+                    .to(
+                        '.cta_card p',
+                        {
+                            opacity: 1,
+                            duration: 0.5,
+                            y: '0%',
+                            ease: 'circ.out',
+                        },
+                        '<15%'
+                    )
+                    .to(
+                        '.form',
+                        {
+                            duration: 0.8,
+                            ease: 'circ.out',
+                            opacity: 1,
+                            width: '100%',
+                        },
+                        '<25%'
+                    )
+                    .to(
+                        '.cta_card',
+                        {
+                            ease: 'power2.out',
+                            opacity: 1,
+                            duration: 3,
+                            '--background-color--hero-gradient-1':
+                                'rgba(15, 15, 15, 0)',
+                        },
+                        '<0%'
+                    );
+            },
+        });
+    })
+    .catch(function () {
+        console.log('Font failed to load');
+    });
 
 const slider = document.querySelector('.horizontal-scroll_track');
 
