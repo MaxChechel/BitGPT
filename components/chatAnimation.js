@@ -90,25 +90,25 @@ export default function chatAnimation() {
                                     marginBottom: 0,
                                     gridTemplateRows: '1fr',
                                     duration: 0.4,
-                                })
-                                .to('.chat-a_msg-wrap', {
-                                    delay: 1,
-                                    opacity: 0,
-                                })
-                                .to('.chat-a_msg-wrap:not(:first-child)', {
-                                    delay: 0.5,
-                                    height: 0,
-                                    marginBottom: '-1.5rem',
-                                })
-                                .to("[data-chat-1='img-1']", {
-                                    duration: 0,
-                                    gridTemplateRows: '0fr',
-                                    opacity: 0,
-                                })
-                                .to("[data-chat='1']", {
-                                    opacity: 1,
-                                    height: 'auto',
                                 });
+                            // .to('.chat-a_msg-wrap', {
+                            //     delay: 1,
+                            //     opacity: 0,
+                            // })
+                            // .to('.chat-a_msg-wrap:not(:first-child)', {
+                            //     delay: 0.5,
+                            //     height: 0,
+                            //     marginBottom: '-1.5rem',
+                            // })
+                            // .to("[data-chat-1='img-1']", {
+                            //     duration: 0,
+                            //     gridTemplateRows: '0fr',
+                            //     opacity: 0,
+                            // })
+                            // .to("[data-chat='1']", {
+                            //     opacity: 1,
+                            //     height: 'auto',
+                            // });
                         }
                     },
                 });
