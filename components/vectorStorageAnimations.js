@@ -24,7 +24,7 @@ export default function vectorStorageAnimation() {
 
     const tl = gsap.timeline({ paused: true, delay: 0.4 });
     tl.to('.vector-a_arrows', {
-        maxWidth: '12%',
+        maxWidth: '9%',
         duration: 1,
     })
         .to('.vector-a_model', {

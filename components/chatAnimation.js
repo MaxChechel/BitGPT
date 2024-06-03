@@ -6,13 +6,8 @@ export default function chatAnimation() {
     const chatTl = gsap.timeline({
         defaults: { ease: 'circ.out' },
     });
-
-    const img1Height = document.querySelector(
-        "[data-chat-1='img-1-1']"
-    ).offsetHeight;
-    const img2Height = document.querySelector(
-        "[data-chat-3='graph-1']"
-    ).offsetHeight;
+    let repeatCount = 0;
+    repeatCount = 0;
     chatTl
         .to("[data-chat-1='img-1']", {
             delay: 1,
@@ -44,7 +39,6 @@ export default function chatAnimation() {
             const tl = gsap.timeline();
             const bubblesTl = gsap.timeline({ repeat: 2 });
             const bubbles = chat.querySelectorAll('.chat-bubbles');
-            let repeatCount = 0;
 
             bubblesTl
                 .to(bubbles, {
@@ -96,6 +90,24 @@ export default function chatAnimation() {
                                     marginBottom: 0,
                                     gridTemplateRows: '1fr',
                                     duration: 0.4,
+                                })
+                                .to('.chat-a_msg-wrap', {
+                                    delay: 1,
+                                    opacity: 0,
+                                })
+                                .to('.chat-a_msg-wrap:not(:first-child)', {
+                                    delay: 0.5,
+                                    height: 0,
+                                    marginBottom: '-1.5rem',
+                                })
+                                .to("[data-chat-1='img-1']", {
+                                    duration: 0,
+                                    gridTemplateRows: '0fr',
+                                    opacity: 0,
+                                })
+                                .to("[data-chat='1']", {
+                                    opacity: 1,
+                                    height: 'auto',
                                 });
                         }
                     },
