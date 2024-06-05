@@ -3,7 +3,10 @@ import TextPlugin from 'gsap/TextPlugin';
 gsap.registerPlugin(TextPlugin);
 
 export default function llmAnimation() {
-    const initTL = gsap.timeline({ duration: 0.6, ease: 'circ.out' });
+    const initTL = gsap.timeline({
+        defaults: { duration: 1 },
+        ease: 'circ.out',
+    });
     initTL
         .to('.llm-a_bar.is-1', { width: '77%' })
         .to(

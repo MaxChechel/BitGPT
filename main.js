@@ -116,6 +116,71 @@ document.fonts
                 },
             });
         });
+
+        //Feature sections
+
+        const sectionFeature = document.querySelectorAll('.feature_component');
+        sectionFeature.forEach((section) => {
+            const heading = section.querySelector('h3');
+            const text = section.querySelectorAll('p');
+            const anim = section.querySelector('.feature_image-wrapper');
+            ScrollTrigger.create({
+                trigger: section,
+                start: 'top 60%',
+                end: 'top 50%',
+                invalidateOnRefresh: true,
+                onEnter: () => {
+                    const tl = gsap.timeline();
+
+                    tl.to(heading, {
+                        opacity: 1,
+                        y: '0%',
+                        duration: 0.6,
+                        ease: 'circ.out',
+                    })
+                        .to(
+                            text,
+                            {
+                                opacity: 1,
+                                duration: 0.5,
+                                y: '0%',
+                                ease: 'circ.out',
+                                stagger: { each: 0.05 },
+                            },
+                            '<15%'
+                        )
+                        .to(
+                            anim,
+                            {
+                                y: '0%',
+                                opacity: 1,
+                                duration: 0.8,
+                                ease: 'circ.out',
+                            },
+                            '<50%'
+                        );
+                },
+            });
+        });
+
+        //Card row
+        ScrollTrigger.create({
+            trigger: '.card-row_component',
+            start: 'top 60%',
+            end: 'top 50%',
+            invalidateOnRefresh: true,
+            onEnter: () => {
+                const tl = gsap.timeline();
+                tl.to('.card-row_card:not(.is-wide)', {
+                    y: '0%',
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: 'circ.out',
+                    stagger: { each: 0.05 },
+                });
+            },
+        });
+
         ////Pre footer cta
         ScrollTrigger.create({
             trigger: '.cta_card',
@@ -286,27 +351,31 @@ mm.add('(max-width: 991px)', () => {
     });
 });
 ////CHAT///////
+const mainChatTl = chatAnimation();
 ScrollTrigger.create({
     trigger: '[data-chat-animation]',
     start: 'top 50%',
     end: 'top 0%',
     invalidateOnRefresh: true,
-    onEnter: () => {
-        chatAnimation();
-    },
+    onEnter: () => mainChatTl.play(),
+    onLeave: () => mainChatTl.pause(),
+    onEnterBack: () => mainChatTl.play(),
+    onLeaveBack: () => mainChatTl.pause(),
 });
 
 //////////////
 
 //////AGENT////////
+const mainAgentTl = agentAnimation();
 ScrollTrigger.create({
     trigger: '[data-agent-animation]',
     start: 'top 50%',
     end: 'top 0%',
     invalidateOnRefresh: true,
-    onEnter: () => {
-        agentAnimation();
-    },
+    onEnter: () => mainAgentTl.play(),
+    onLeave: () => mainAgentTl.pause(),
+    onEnterBack: () => mainAgentTl.play(),
+    onLeaveBack: () => mainAgentTl.pause(),
 });
 //////////////////
 
@@ -353,7 +422,7 @@ btnGlowtween
             drawSVG: 0,
             opacity: 0,
         },
-        { drawSVG: '80% 100%', opacity: 0.5, duration: 2, ease: 'sine.in' }
+        { drawSVG: '80% 100%', opacity: 0.5, duration: 3, ease: 'sine.in' }
     )
     .to('.btn-border-path', {
         drawSVG: '100% 200%',
