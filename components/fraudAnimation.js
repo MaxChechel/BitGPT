@@ -70,14 +70,6 @@ export default function fraudAnimation() {
                 opacity: 1,
                 duration: 0.5,
             })
-            .to('.fraud-modal_btns .message.is-btn.is-active', {
-                scale: 1.01,
-                duration: 0.2,
-            })
-            .to('.fraud-modal_btns .message.is-btn.is-active', {
-                scale: 1,
-                duration: 0.1,
-            })
             .to(
                 '.fraud-modal_btns .message.is-btn.is-active',
                 {
@@ -86,11 +78,16 @@ export default function fraudAnimation() {
                 },
                 '<0%'
             )
-            .to(
-                '.fraud-a_modal-1',
-                { delay: 0.2, opacity: 0, duration: 0.2 },
-                '<60%'
-            )
+            .to('.fraud-modal_btns .message.is-btn.is-active', {
+                scale: 1.01,
+                duration: 0.2,
+            })
+            .to('.fraud-modal_btns .message.is-btn.is-active', {
+                scale: 1,
+                duration: 0.1,
+            })
+
+            .to('.fraud-a_modal-1', { delay: 0.2, opacity: 0, duration: 0.2 })
             .to(
                 '.fraud-a_modal-2',
                 {
