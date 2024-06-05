@@ -70,14 +70,6 @@ export default function fraudAnimation() {
                 opacity: 1,
                 duration: 0.5,
             })
-            .to(
-                '.fraud-modal_btns .message.is-btn.is-active',
-                {
-                    background: 'rgba(255,255,255,.92)',
-                    color: '#04070D',
-                },
-                '<80%'
-            )
             .to('.fraud-modal_btns .message.is-btn.is-active', {
                 scale: 1.01,
                 duration: 0.2,
@@ -87,9 +79,16 @@ export default function fraudAnimation() {
                 duration: 0.1,
             })
             .to(
+                '.fraud-modal_btns .message.is-btn.is-active',
+                {
+                    background: 'rgba(255,255,255,.92)',
+                    color: '#04070D',
+                },
+                '<0%'
+            )
+            .to(
                 '.fraud-a_modal-1',
                 {
-                    delay: 1.5,
                     opacity: 0,
                     duration: 0.2,
                 },
