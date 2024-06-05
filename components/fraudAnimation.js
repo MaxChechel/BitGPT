@@ -65,15 +65,6 @@ export default function fraudAnimation() {
                 },
                 '<60%'
             )
-            .to(
-                '.fraud-a_modal-1',
-                {
-                    delay: 1.5,
-                    opacity: 0,
-                    duration: 0.2,
-                },
-                '<60%'
-            )
             .to('.fraud_cursor', {
                 top: 12,
                 opacity: 1,
@@ -95,6 +86,15 @@ export default function fraudAnimation() {
                 scale: 1,
                 duration: 0.1,
             })
+            .to(
+                '.fraud-a_modal-1',
+                {
+                    delay: 1.5,
+                    opacity: 0,
+                    duration: 0.2,
+                },
+                '<60%'
+            )
             .to(
                 '.fraud-a_modal-2',
                 {
