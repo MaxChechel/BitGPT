@@ -58,5 +58,6 @@ export default function contributeAnimation() {
                 ease: 'power2.out',
             },
             '<40%'
-        );
+        )
+        .to('.contribute-a_pulses .line-pulse', { opacity: 1 }, '<40%');
 }
