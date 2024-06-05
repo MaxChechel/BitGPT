@@ -88,10 +88,7 @@ export default function fraudAnimation() {
             )
             .to(
                 '.fraud-a_modal-1',
-                {
-                    opacity: 0,
-                    duration: 0.2,
-                },
+                { delay: 0.2, opacity: 0, duration: 0.2 },
                 '<60%'
             )
             .to(
