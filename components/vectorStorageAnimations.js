@@ -24,25 +24,40 @@ export default function vectorStorageAnimation() {
 
     const tl = gsap.timeline({ paused: true, delay: 0.4 });
     tl.to('.vector-a_arrows', {
-        maxWidth: '9%',
-        duration: 1,
+        maxWidth: '8%',
+        duration: 0.8,
     })
+        .to('.vector-a_arrows', {
+            opacity: 1,
+            duration: 1,
+        })
+        .to('.vector-a_model', {
+            maxWidth: '19%',
+            duration: 0.8,
+        })
         .to('.vector-a_model', {
             opacity: 1,
-            maxWidth: '19%',
-            duration: 1.4,
+            duration: 1,
         })
-        .to('.vector-a_arrow-1', { opacity: 1, maxWidth: '5%', duration: 0.7 })
-        .to('.vector-a_embed', { opacity: 1, maxWidth: '23%', duration: 1.4 })
-        .to('.vector-a_arrow-2', { opacity: 1, maxWidth: '5%', duration: 0.7 })
+        .to('.vector-a_arrow-1', { opacity: 1, maxWidth: '5%', duration: 0.8 })
+        .to('.vector-a_embed', { maxWidth: '23%', duration: 0.8 })
+        .to('.vector-a_embed', { opacity: 1, duration: 1 })
+        .to('.vector-a_arrow-2', { opacity: 1, maxWidth: '5%', duration: 0.8 })
+        .to('.vector-a_database-wrap', {
+            maxWidth: '18%',
+            duration: 0.8,
+        })
         .to('.vector-a_database-wrap', {
             opacity: 1,
-            maxWidth: '18%',
-            duration: 2,
+            duration: 1.6,
         })
-        .to('.vector-a_arrow-3', {
-            opacity: 1,
-            maxWidth: '340%',
-            duration: 1.4,
-        });
+        .to(
+            '.vector-a_arrow-3',
+            {
+                opacity: 1,
+                maxWidth: '320%',
+                duration: 1.4,
+            },
+            '<0%'
+        );
 }

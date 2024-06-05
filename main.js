@@ -353,33 +353,25 @@ btnGlowtween
             drawSVG: 0,
             opacity: 0,
         },
-        { drawSVG: '50% 100%', opacity: 1, duration: 1, ease: 'sine.in' }
+        { drawSVG: '80% 100%', opacity: 0.5, duration: 2, ease: 'sine.in' }
     )
-    .to('.btn-border-path', { drawSVG: '100% 150%', opacity: 0 })
-    .to(
-        '.btn-bg-path',
-        {
-            fillOpacity: 0.1,
-            duration: 1,
-        },
-        0
-    )
-    .to('.btn-bg-path', {
-        fillOpacity: 0.08,
-        duration: 1,
+    .to('.btn-border-path', {
+        drawSVG: '100% 200%',
+        opacity: 0,
+        ease: 'sine.in',
     });
+// .to(
+//     '.btn-bg-path',
+//     {
+//         fillOpacity: 0.12,
+//         duration: 0.8,
+//         ease: 'power2.out',
+//     },
+//     0
+// )
+// .to('.btn-bg-path', {
+//     fillOpacity: 0.04,
+//     duration: 1.4,
+//     ease: 'power2.out',
+// });
 btnGlowtween.play();
-
-///////Footer logo
-ScrollTrigger.create({
-    trigger: '.footer_bottom-img',
-    start: 'top 90%',
-    end: 'top 80%',
-    onEnter: () => {
-        gsap.to('.footer-logo-letter', {
-            y: '0%',
-            opacity: 1,
-            stagger: { each: 0.05 },
-        });
-    },
-});

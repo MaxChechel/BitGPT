@@ -27,6 +27,7 @@ export default function agentAnimation() {
                 onComplete: () => {
                     repeatCount++;
                     if (repeatCount === 3) {
+                        bubblesTl.kill();
                         callbackFunc();
                     }
                 },
@@ -49,6 +50,7 @@ export default function agentAnimation() {
             duration: 0.4,
             opacity: 1,
             onComplete: () => {
+                agentTl.kill();
                 chatBubbles("[data-agent='2']", animateSecondAgentAnimations);
             },
         });
@@ -83,6 +85,7 @@ export default function agentAnimation() {
                 duration: 0.4,
                 opacity: 1,
                 onComplete: () => {
+                    tl.kill();
                     chatBubbles(
                         '[data-agent="4"]',
                         animateThirdAgentAnimations
@@ -191,6 +194,7 @@ export default function agentAnimation() {
                 duration: 0.4,
                 opacity: 1,
                 onComplete: () => {
+                    tl.kill();
                     chatBubbles(
                         '[data-agent-2="5"]',
                         animateFourthAgentAnimations
@@ -216,5 +220,53 @@ export default function agentAnimation() {
             },
             '<0%'
         );
+        // .to('[data-agent-2]', {
+        //     delay: 0.5,
+        //     opacity: 0,
+        // })
+        // .to('[data-agent-2]', {
+        //     height: 0,
+        //     duration: 0,
+        //     marginBottom: 0,
+        // })
+        // .to('[data-agent]', {
+        //     display: 'grid',
+        //     duration: 0,
+        //     opacity: 1,
+        //     height: 0,
+        //     marginBottom: 0,
+        // })
+        // .to('.agent-a_msg-wrap .chat-a_chat-outer-wrap', {
+        //     height: 0,
+        //     duration: 0,
+        // })
+        // .to(
+        //     '[data-agent] .chat-a_chat-wrap.is-bubbles, [data-agent-2] .chat-a_chat-wrap.is-bubbles',
+        //     {
+        //         opacity: 1,
+        //         height: 'auto',
+        //         paddingTop: '1rem',
+        //         paddingBottom: '1rem',
+        //         duration: 0,
+        //     }
+        // )
+        // .to("[data-agent-2='1']", { overflow: 'hidden', duration: 0 })
+        // .to('.agent-a-2_cursor', {
+        //     opacity: 0,
+        //     duration: 0,
+        // })
+        // .to('.agent-a-2_cursor', {
+        //     top: -36,
+        //     duration: 0,
+        // })
+        // .to('.agent-a-2_suggested-wrap .message.is-active', {
+        //     background: 'rgba(255, 255, 255, 0.05)',
+        //     color: '#fff',
+        //     duration: 0,
+        // })
+        // .add(() => {
+        //     tl.kill();
+        //     //agentAnimation();
+        // });
     }
 }

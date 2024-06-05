@@ -24,22 +24,18 @@ export default function scanAnimation() {
             },
             '<0%'
         )
-        .to('.scan-a_cell', {
-            scale: 0.7,
-            duration: 2,
+        // .to('.scan-a_cell', {
+        //     scale: 0.7,
+        //     duration: 2,
+        // })
+        .to('.scan-a_cell-item', {
+            opacity: 0,
+            stagger: { each: 0.025 },
         })
-        .to(
-            '.scan-a_cell-item',
-            {
-                opacity: 0,
-                stagger: { each: 0.05 },
-            },
-            '<0%'
-        )
-        .to('.scan-a_cell', {
-            scale: 1,
-            duration: 0,
-        })
+        // .to('.scan-a_cell', {
+        //     scale: 1,
+        //     duration: 0,
+        // })
         .to('.scan-a_cell-item.is-fraud', {
             filter: 'none',
             duration: 0,
@@ -57,14 +53,18 @@ export default function scanAnimation() {
             '.scan-a_cell-item',
             {
                 opacity: 1,
-                stagger: { each: 0.05 },
+                stagger: { each: 0.025 },
             },
             '<25%'
         )
-        .to('.scan-a_overlay', {
-            opacity: 1,
-            duration: 1,
-        });
+        .to(
+            '.scan-a_overlay',
+            {
+                opacity: 1,
+                duration: 1,
+            },
+            '<25%'
+        );
 
     return scanTl;
 }

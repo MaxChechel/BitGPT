@@ -18,16 +18,22 @@ export default function evaluateAnimation() {
         .to(
             '.evaluate-a_arrow.is-1',
             {
-                opacity: 1,
                 maxWidth: '1.5rem',
-                duration: 0.7,
+                duration: 0.3,
             },
             '<0%'
         )
+        .to('.evaluate-a_arrow.is-1', {
+            opacity: 1,
+            duration: 0.4,
+        })
+        .to('.evaluate-a_bitgpt', {
+            maxWidth: '13%',
+            duration: 0.8,
+        })
         .to('.evaluate-a_bitgpt', {
             opacity: 1,
-            maxWidth: '13%',
-            duration: 1.4,
+            duration: 1,
         })
         .to(
             '.evaluate-a_bitgpt-img-1',
@@ -38,23 +44,35 @@ export default function evaluateAnimation() {
             '<30%'
         )
         .to('.evaluate-a_arrow.is-2', {
-            opacity: 1,
             maxWidth: '1.5rem',
-            duration: 0.7,
+            duration: 0.3,
+        })
+        .to('.evaluate-a_arrow.is-2', {
+            opacity: 1,
+            duration: 0.4,
+        })
+        .to('.evaluate-a_llm', {
+            maxWidth: '20%',
+            duration: 0.8,
         })
         .to('.evaluate-a_llm', {
             opacity: 1,
-            maxWidth: '20%',
-            duration: 1.4,
+            duration: 1,
+        })
+        .to('.evaluate-a_arrows-wrap', {
+            maxWidth: '12%',
+            duration: 0.8,
         })
         .to('.evaluate-a_arrows-wrap', {
             opacity: 1,
-            maxWidth: '12%',
-            duration: 1.4,
+            duration: 1,
+        })
+        .to('.evaluate-a_dataset', {
+            maxWidth: '20%',
+            duration: 0.8,
         })
         .to('.evaluate-a_dataset', {
             opacity: 1,
-            maxWidth: '20%',
-            duration: 1.4,
+            duration: 1,
         });
 }

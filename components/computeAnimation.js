@@ -10,7 +10,7 @@ export default function computeAnimation() {
         const path = svg.querySelector('.compute-path');
         const line = svg.querySelector('.compute-line');
         const pathLength = path.getTotalLength();
-        const timeToPlay = Math.floor(Math.random() * 3) + 1.5;
+        const timeToPlay = Math.floor(Math.random() * 4) + 2;
         const timeDelay = Math.floor(Math.random() * 3) + 1;
 
         // Set the transform origin and offsets before animating
