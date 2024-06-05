@@ -74,6 +74,27 @@ export default function fraudAnimation() {
                 },
                 '<60%'
             )
+            .to('.fraud_cursor', {
+                top: 12,
+                opacity: 1,
+                duration: 0.5,
+            })
+            .to(
+                '.fraud-modal_btns .message.is-btn.is-active',
+                {
+                    background: 'rgba(255,255,255,.92)',
+                    color: '#04070D',
+                },
+                '<80%'
+            )
+            .to('.fraud-modal_btns .message.is-btn.is-active', {
+                scale: 1.01,
+                duration: 0.2,
+            })
+            .to('.fraud-modal_btns .message.is-btn.is-active', {
+                scale: 1,
+                duration: 0.1,
+            })
             .to(
                 '.fraud-a_modal-2',
                 {
