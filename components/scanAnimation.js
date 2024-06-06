@@ -6,7 +6,7 @@ export default function scanAnimation() {
     scanTl
         .to('.scan-a_overlay', {
             width: '0%',
-            duration: 2.5,
+            duration: 4,
             ease: 'none',
         })
         .to(
