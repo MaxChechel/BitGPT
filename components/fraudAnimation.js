@@ -119,7 +119,7 @@ export default function fraudAnimation() {
             '<60%'
         )
         .to('.fraud-a_modal-2', {
-            delay: 0.8,
+            delay: 3,
             opacity: 0,
             duration: 0.4,
         });

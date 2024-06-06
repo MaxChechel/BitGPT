@@ -285,7 +285,7 @@ export default function agentAnimation() {
             '<0%'
         )
         .to('[data-agent-2]', {
-            delay: 0.5,
+            delay: 3,
             opacity: 0,
         });
 

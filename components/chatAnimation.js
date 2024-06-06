@@ -132,7 +132,7 @@ export default function chatAnimation() {
             duration: 0.4,
         })
         .to('.chat-a_msg-wrap', {
-            delay: 1,
+            delay: 3,
             opacity: 0,
         })
         .to('.chat-a_msg-wrap:not(:first-child)', {
