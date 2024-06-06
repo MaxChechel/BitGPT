@@ -2,6 +2,8 @@ import gsap from 'gsap';
 
 export default function agentAnimation() {
     const agent = document.querySelector('.agent-animation');
+    const chatInput = agent.querySelector('.chat_input-text');
+    const chatInputBtn = agent.querySelector('.chat-input-btn');
     const agentTl = gsap.timeline({ defaults: { ease: 'circ.out' } });
 
     const mainTl = gsap.timeline({
@@ -54,20 +56,40 @@ export default function agentAnimation() {
 
     // Animate elements with data-agent="1" and "2"
     agentTl
-        .to("[data-agent='1']", {
-            delay: 0.8,
-            marginBottom: 12,
-            height: 'auto',
-            duration: 0.4,
-            opacity: 1,
+        .to(chatInput, { text: { value: '' }, duration: 0, ease: 'none' })
+        .to(chatInput, {
+            text: {
+                value: 'Yo, how many memecoins do I have?',
+            },
+            duration: 1.65,
+            ease: 'none',
         })
-        .to("[data-agent='2']", {
-            delay: 0.8,
-            marginBottom: 12,
-            height: 'auto',
-            duration: 0.4,
-            opacity: 1,
-        });
+        .to(chatInputBtn, { delay: 0.1, duration: 0.2, fillOpacity: 0.1 })
+        .to(chatInputBtn, { fillOpacity: 0.04, duration: 0.1 })
+        .to(
+            "[data-agent='1']",
+            {
+                marginBottom: 12,
+                height: 'auto',
+                duration: 0.4,
+                opacity: 1,
+            },
+            '<0%'
+        )
+        .to(chatInput, { opacity: 0, duration: 0 }, '<0%')
+        .to(chatInput, { text: { value: 'Ask anything...' }, duration: 0 })
+        .to(chatInput, { opacity: 1, duration: 0.3 })
+        .to(
+            "[data-agent='2']",
+            {
+                delay: 0.4,
+                marginBottom: 12,
+                height: 'auto',
+                duration: 0.4,
+                opacity: 1,
+            },
+            '<0%'
+        );
 
     // Function for final animations after 3 bubble repeats
 
@@ -86,20 +108,40 @@ export default function agentAnimation() {
             { opacity: 1, height: 'auto', duration: 0.4 },
             '<0%'
         )
-        .to("[data-agent='3']", {
-            delay: 0.8,
-            marginBottom: 12,
-            height: 'auto',
-            duration: 0.4,
-            opacity: 1,
+        .to(chatInput, { text: { value: '' }, duration: 0, ease: 'none' })
+        .to(chatInput, {
+            text: {
+                value: "Cool, let's send 8M SHIB to Ryan",
+            },
+            duration: 1.6,
+            ease: 'none',
         })
-        .to("[data-agent='4']", {
-            delay: 0.8,
-            marginBottom: 12,
-            height: 'auto',
-            duration: 0.4,
-            opacity: 1,
-        });
+        .to(chatInputBtn, { delay: 0.1, duration: 0.2, fillOpacity: 0.1 })
+        .to(chatInputBtn, { fillOpacity: 0.04, duration: 0.1 })
+        .to(
+            "[data-agent='3']",
+            {
+                marginBottom: 12,
+                height: 'auto',
+                duration: 0.4,
+                opacity: 1,
+            },
+            '<0%'
+        )
+        .to(chatInput, { opacity: 0, duration: 0 }, '<0%')
+        .to(chatInput, { text: { value: 'Ask anything...' }, duration: 0 })
+        .to(chatInput, { opacity: 1, duration: 0.3 })
+        .to(
+            "[data-agent='4']",
+            {
+                delay: 0.4,
+                marginBottom: 12,
+                height: 'auto',
+                duration: 0.4,
+                opacity: 1,
+            },
+            '<0%'
+        );
 
     const animateThirdAgentAnimations = gsap.timeline();
     animateThirdAgentAnimations
@@ -187,20 +229,40 @@ export default function agentAnimation() {
             duration: 0.4,
             opacity: 1,
         })
-        .to("[data-agent-2='4']", {
-            delay: 0.8,
-            marginBottom: 12,
-            height: 'auto',
+        .to(chatInput, { text: { value: '' }, duration: 0, ease: 'none' })
+        .to(chatInput, {
+            text: {
+                value: '10M SHIB',
+            },
             duration: 0.4,
-            opacity: 1,
+            ease: 'none',
         })
-        .to("[data-agent-2='5']", {
-            delay: 0.8,
-            marginBottom: 12,
-            height: 'auto',
-            duration: 0.4,
-            opacity: 1,
-        });
+        .to(chatInputBtn, { delay: 0.1, duration: 0.2, fillOpacity: 0.1 })
+        .to(chatInputBtn, { fillOpacity: 0.04, duration: 0.1 })
+        .to(
+            "[data-agent-2='4']",
+            {
+                marginBottom: 12,
+                height: 'auto',
+                duration: 0.4,
+                opacity: 1,
+            },
+            '<0%'
+        )
+        .to(chatInput, { opacity: 0, duration: 0 }, '<0%')
+        .to(chatInput, { text: { value: 'Ask anything...' }, duration: 0 })
+        .to(chatInput, { opacity: 1, duration: 0.3 })
+        .to(
+            "[data-agent-2='5']",
+            {
+                delay: 0.4,
+                marginBottom: 12,
+                height: 'auto',
+                duration: 0.4,
+                opacity: 1,
+            },
+            '<0%'
+        );
 
     ///Second sequense start
 

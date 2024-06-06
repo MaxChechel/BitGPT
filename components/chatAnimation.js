@@ -60,7 +60,7 @@ export default function chatAnimation() {
             text: {
                 value: 'What is the current price of ETH, and what is its 24-hour price change?',
             },
-            duration: 3,
+            duration: 3.55,
             ease: 'none',
         })
         .to(chatInputBtn, { delay: 0.1, duration: 0.2, fillOpacity: 0.1 })
@@ -68,7 +68,6 @@ export default function chatAnimation() {
         .to(
             "[data-chat='2']",
             {
-                delay: 0.2,
                 opacity: 1,
                 marginBottom: 0,
                 height: 'auto',
@@ -80,20 +79,16 @@ export default function chatAnimation() {
         .to(chatInput, { text: { value: 'Ask anything...' }, duration: 0 })
         .to(chatInput, { opacity: 1, duration: 0.3 })
         .to(
-            "[data-chat-2='msg']",
+            "[data-chat='3']",
             {
+                delay: 0.4,
                 opacity: 1,
+                marginBottom: 0,
+                height: 'auto',
                 duration: 0.4,
             },
             '<0%'
-        )
-        .to("[data-chat='3']", {
-            delay: 0.8,
-            opacity: 1,
-            marginBottom: 0,
-            height: 'auto',
-            duration: 0.4,
-        });
+        );
     const bubblesTl = gsap.timeline({ repeat: 2 });
     const bubbles = chat.querySelectorAll('.chat-bubbles');
 
@@ -124,16 +119,6 @@ export default function chatAnimation() {
             '.chat-animation .chat-a_chat-outer-wrap',
             {
                 opacity: 1,
-                height: 'auto',
-                duration: 0.4,
-            },
-            '<0%'
-        )
-        .to(
-            "[data-chat-3='msg']",
-            {
-                opacity: 1,
-                marginBottom: 0,
                 height: 'auto',
                 duration: 0.4,
             },

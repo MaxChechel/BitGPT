@@ -355,7 +355,7 @@ const mainChatTl = chatAnimation();
 ScrollTrigger.create({
     trigger: '[data-chat-animation]',
     start: 'top 50%',
-    end: 'top 0%',
+    end: 'bottom 60%',
     invalidateOnRefresh: true,
     onEnter: () => mainChatTl.play(),
     onLeave: () => mainChatTl.pause(),
@@ -370,7 +370,7 @@ const mainAgentTl = agentAnimation();
 ScrollTrigger.create({
     trigger: '[data-agent-animation]',
     start: 'top 50%',
-    end: 'top 0%',
+    end: 'bottom 60%',
     invalidateOnRefresh: true,
     onEnter: () => mainAgentTl.play(),
     onLeave: () => mainAgentTl.pause(),
@@ -383,30 +383,36 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: '[data-llm-animation]',
     start: 'top 50%',
-    end: 'top 0%',
+    end: 'bottom 60%',
     invalidateOnRefresh: true,
     onEnter: () => {
         llmAnimation();
     },
 });
 
-//////////////////
-const scanTl = scanAnimation();
-
+////Scan
+const mainScanTl = scanAnimation();
 ScrollTrigger.create({
     trigger: '[data-security-animation]',
     start: 'top 50%',
-    end: 'bottom 0%',
-    onEnter: () => scanTl.resume(),
-    onLeave: () => scanTl.pause(),
-    onEnterBack: () => scanTl.resume(),
-    onLeaveBack: () => scanTl.pause(),
+    end: 'bottom 60%',
+    onEnter: () => mainScanTl.resume(),
+    onLeave: () => mainScanTl.pause(),
+    onEnterBack: () => mainScanTl.resume(),
+    onLeaveBack: () => mainScanTl.pause(),
 });
+
+////Fraud
+const mainFraudTl = fraudAnimation();
 ScrollTrigger.create({
     trigger: '[data-security-animation]',
     start: 'top 50%',
-    end: 'bottom 0%',
-    onEnter: () => fraudAnimation(),
+    end: 'bottom 60%',
+    invalidateOnRefresh: true,
+    onEnter: () => mainFraudTl.play(),
+    onLeave: () => mainFraudTl.pause(),
+    onEnterBack: () => mainFraudTl.play(),
+    onLeaveBack: () => mainFraudTl.pause(),
 });
 
 /////Decentralized Model Registry////////
