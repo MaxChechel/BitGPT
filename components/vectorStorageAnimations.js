@@ -32,7 +32,7 @@ export default function vectorStorageAnimation() {
             duration: 1,
         })
         .to('.vector-a_model', {
-            maxWidth: '19%',
+            maxWidth: '18%',
             duration: 0.8,
         })
         .to('.vector-a_model', {
@@ -55,7 +55,7 @@ export default function vectorStorageAnimation() {
             '.vector-a_arrow-3',
             {
                 opacity: 1,
-                maxWidth: '350%',
+                maxWidth: '320%',
                 duration: 1.4,
             },
             '<0%'
