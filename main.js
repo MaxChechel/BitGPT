@@ -244,11 +244,6 @@ const sliderCards = slider.querySelectorAll(
 );
 let mm = gsap.matchMedia();
 
-function getScrollAmount() {
-    let racesWidth = slider.scrollWidth;
-    return racesWidth - window.innerWidth;
-}
-
 const horizontalScrollTween = gsap.to(slider, {
     x: () => slider.scrollWidth * -1,
     xPercent: 100,
@@ -268,7 +263,7 @@ ScrollTrigger.create({
     end: () =>
         '+=' + document.querySelector('.horizontal-scroll_track').offsetWidth,
     animation: horizontalScrollTween,
-    scrub: 1.2,
+    scrub: 2,
     invalidateOnRefresh: true,
     pin: true,
 });
