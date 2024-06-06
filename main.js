@@ -261,9 +261,10 @@ const horizontalScrollTween = gsap.to(slider, {
     x: () => -slider.scrollWidth + scrollGap,
     ease: 'none',
 });
+//decentralization_slider-wrap
 
 ScrollTrigger.create({
-    trigger: '.decentralization_slider-wrap',
+    trigger: '.section_decentralization',
     start: 'top 0',
     end: () => `+=${getScrollAmount()}`,
     animation: horizontalScrollTween,
