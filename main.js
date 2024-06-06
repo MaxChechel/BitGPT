@@ -245,7 +245,6 @@ const sliderCards = slider.querySelectorAll(
 
 let mm = gsap.matchMedia();
 
-//mm.add('(min-width: 992px)', () => {
 gsap.set(sliderCards, {
     scale: 0.9,
     opacity: 0.3,
@@ -261,10 +260,12 @@ const horizontalScrollTween = gsap.to(slider, {
     x: () => -slider.scrollWidth + scrollGap,
     ease: 'none',
 });
-//decentralization_slider-wrap
-
+let horizTrigger = document.querySelector('.decentralization_slider-wrap');
+mm.add('(max-width: 991px)', () => {
+    horizTrigger = document.querySelector('.section_decentralization');
+});
 ScrollTrigger.create({
-    trigger: '.section_decentralization',
+    trigger: horizTrigger,
     start: 'top 0',
     end: () => `+=${getScrollAmount()}`,
     animation: horizontalScrollTween,
