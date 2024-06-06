@@ -242,34 +242,33 @@ const slider = document.querySelector('.horizontal-scroll_track');
 const sliderCards = slider.querySelectorAll(
     '.horizontal-scroll_card-wrap:not(:first-child) .card-row_card'
 );
-
 let mm = gsap.matchMedia();
-
-// gsap.set(sliderCards, {
-//     scale: 0.9,
-//     opacity: 0.3,
-// });
 
 function getScrollAmount() {
     let racesWidth = slider.scrollWidth;
     return racesWidth - window.innerWidth;
 }
-let scrollGap = window.innerWidth;
 
 const horizontalScrollTween = gsap.to(slider, {
-    x: () => -slider.scrollWidth + scrollGap,
+    x: () => slider.scrollWidth * -1,
+    xPercent: 100,
     ease: 'none',
 });
 let horizTrigger = document.querySelector('.decentralization_slider-wrap');
 mm.add('(max-width: 991px)', () => {
     horizTrigger = document.querySelector('.section_decentralization');
 });
+gsap.set(sliderCards, {
+    scale: 0.9,
+    opacity: 0.3,
+});
 ScrollTrigger.create({
     trigger: horizTrigger,
     start: 'top 0',
-    end: () => `+=${getScrollAmount()}`,
+    end: () =>
+        '+=' + document.querySelector('.horizontal-scroll_track').offsetWidth,
     animation: horizontalScrollTween,
-    scrub: 1.5,
+    scrub: 1.2,
     invalidateOnRefresh: true,
     pin: true,
 });
