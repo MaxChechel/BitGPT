@@ -257,7 +257,7 @@ function getScrollAmount() {
 let scrollGap = window.innerWidth * 0.75;
 
 const horizontalScrollTween = gsap.to(slider, {
-    x: () => -slider.scrollWidth + scrollGap,
+    x: () => -slider.scrollWidth,
     ease: 'none',
 });
 let horizTrigger = document.querySelector('.decentralization_slider-wrap');
