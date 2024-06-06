@@ -15,7 +15,7 @@ export default function vectorStorageAnimation() {
     Flip.from(state, {
         duration: 0.5,
         stagger: 0.1,
-        absolute: true,
+        //absolute: true,
         ease: 'power1.inOut',
         onComplete: () => {
             tl.play();
