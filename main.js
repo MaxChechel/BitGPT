@@ -245,10 +245,10 @@ const sliderCards = slider.querySelectorAll(
 
 let mm = gsap.matchMedia();
 
-gsap.set(sliderCards, {
-    scale: 0.9,
-    opacity: 0.3,
-});
+// gsap.set(sliderCards, {
+//     scale: 0.9,
+//     opacity: 0.3,
+// });
 
 function getScrollAmount() {
     let racesWidth = slider.scrollWidth;
