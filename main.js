@@ -247,7 +247,7 @@ let mm = gsap.matchMedia();
 
 mm.add('(min-width: 992px)', () => {
     gsap.set(sliderCards, {
-        scale: 0.9,
+        scale: 0.95,
         opacity: 0.3,
     });
 
