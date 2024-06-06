@@ -254,7 +254,7 @@ function getScrollAmount() {
     let racesWidth = slider.scrollWidth;
     return racesWidth - window.innerWidth;
 }
-let scrollGap = window.innerWidth * 0.65;
+let scrollGap = window.innerWidth;
 
 const horizontalScrollTween = gsap.to(slider, {
     x: () => -slider.scrollWidth + scrollGap,
