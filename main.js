@@ -310,42 +310,42 @@ sliderCards.forEach((slide, index) => {
 });
 //});
 //mm.add('(max-width: 991px)', () => {
-ScrollTrigger.create({
-    trigger: "[data-animation-card='evaluate']",
-    start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        evaluateAnimation();
-    },
-});
-ScrollTrigger.create({
-    trigger: "[data-animation-card='contribute']",
-    start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        contributeAnimation();
-    },
-});
-ScrollTrigger.create({
-    trigger: "[data-animation-card='vector']",
-    start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        vectorStorageAnimation();
-    },
-});
-ScrollTrigger.create({
-    trigger: "[data-animation-card='compute']",
-    start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        computeAnimation();
-    },
-});
+// ScrollTrigger.create({
+//     trigger: "[data-animation-card='evaluate']",
+//     start: 'top 50%',
+//     end: 'top 0%',
+//     invalidateOnRefresh: true,
+//     onEnter: () => {
+//         evaluateAnimation();
+//     },
+// });
+// ScrollTrigger.create({
+//     trigger: "[data-animation-card='contribute']",
+//     start: 'top 50%',
+//     end: 'top 0%',
+//     invalidateOnRefresh: true,
+//     onEnter: () => {
+//         contributeAnimation();
+//     },
+// });
+// ScrollTrigger.create({
+//     trigger: "[data-animation-card='vector']",
+//     start: 'top 50%',
+//     end: 'top 0%',
+//     invalidateOnRefresh: true,
+//     onEnter: () => {
+//         vectorStorageAnimation();
+//     },
+// });
+// ScrollTrigger.create({
+//     trigger: "[data-animation-card='compute']",
+//     start: 'top 50%',
+//     end: 'top 0%',
+//     invalidateOnRefresh: true,
+//     onEnter: () => {
+//         computeAnimation();
+//     },
+// });
 //});
 ////CHAT///////
 const mainChatTl = chatAnimation();
