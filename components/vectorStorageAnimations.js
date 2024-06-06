@@ -55,7 +55,7 @@ export default function vectorStorageAnimation() {
             '.vector-a_arrow-3',
             {
                 opacity: 1,
-                maxWidth: '320%',
+                maxWidth: '350%',
                 duration: 1.4,
             },
             '<0%'
