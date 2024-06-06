@@ -261,7 +261,8 @@ ScrollTrigger.create({
     trigger: horizTrigger,
     start: 'top 0',
     end: () =>
-        '+=' + document.querySelector('.horizontal-scroll_track').offsetWidth,
+        '+=' +
+        document.querySelector('.horizontal-scroll_track').offsetWidth * 2,
     animation: horizontalScrollTween,
     scrub: 2,
     invalidateOnRefresh: true,
@@ -418,10 +419,10 @@ btnGlowtween
         '.btn-border-path',
         {
             ease: 'none',
-            drawSVG: 0,
+            drawSVG: '0% 100%',
             opacity: 0,
         },
-        { drawSVG: '80% 100%', opacity: 0.5, duration: 3, ease: 'sine.in' }
+        { drawSVG: '0% 100%', opacity: 1, duration: 3, ease: 'sine.in' }
     )
     .to('.btn-border-path', {
         drawSVG: '100% 200%',
