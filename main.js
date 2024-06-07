@@ -412,7 +412,7 @@ ScrollTrigger.create({
 
 /////Decentralized Model Registry////////
 gsap.set('.btn-border-path', {
-    drawSVG: '0% 100%',
+    drawSVG: '0% 50%',
     opacity: 1,
     duration: 3,
     ease: 'none',
