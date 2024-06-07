@@ -13,8 +13,8 @@ export default function pulseAnimation() {
 
     letters.forEach((letter) => {
         gsap.to(letter, {
-            duration: 0.2,
-            //delay: Math.random() * 2,
+            duration: 0.1,
+            delay: Math.random() * 2,
             repeat: -1,
             //repeatDelay: Math.random() * 5 + 2,
             onRepeat: function () {
