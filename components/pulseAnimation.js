@@ -63,7 +63,7 @@ export default function pulseAnimation() {
         )
         .to('.pulse_overlay', {
             duration: 1,
-            '--background-color--pulse-gradient': 'rgba(15, 15, 15, 0.9)',
+            '--background-color--pulse-gradient': 'rgba(15, 15, 15, 0.95)',
         });
     //});
 }
