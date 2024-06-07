@@ -411,25 +411,22 @@ ScrollTrigger.create({
 });
 
 /////Decentralized Model Registry////////
+gsap.set('.btn-border-path', {
+    drawSVG: '0% 50%',
+    opacity: 1,
+    duration: 3,
+    ease: 'none',
+});
 const btnGlowtween = gsap.timeline({
     repeat: -1,
     repeatDelay: 0,
 });
-btnGlowtween
-    .fromTo(
-        '.btn-border-path',
-        {
-            ease: 'none',
-            drawSVG: 0,
-            opacity: 0.1,
-        },
-        { drawSVG: '80% 100%', opacity: 1, duration: 3, ease: 'sine.in' }
-    )
-    .to('.btn-border-path', {
-        drawSVG: '100% 150%',
-        opacity: 0,
-        ease: 'sine.in',
-    });
+btnGlowtween.to('.btn-border-path', {
+    drawSVG: '100% 150%',
+    opacity: 1,
+    ease: 'none',
+    duration: 5,
+});
 // .to(
 //     '.btn-bg-path',
 //     {

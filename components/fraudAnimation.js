@@ -14,6 +14,8 @@ export default function fraudAnimation() {
 
     const initialStyles = gsap.timeline();
 
+    //initialStyles.set('.fraud-a_modals-wrapper', {});
+
     const bubblesTl = gsap.timeline({ repeat: 2 });
     const bubbles = fraud.querySelectorAll('.chat-bubbles');
 
@@ -114,14 +116,18 @@ export default function fraudAnimation() {
             '.fraud-a_modal-2',
             {
                 opacity: 1,
-                duration: 0.4,
+                duration: 0.6,
             },
             '<60%'
         )
-        .to('.fraud-a_modal-2', {
+        .to('[data-fraud]', {
             delay: 3,
             opacity: 0,
-            duration: 0.4,
+            duration: 0.3,
+        })
+        .to('.fraud-a_modal-2, .fraud-a_modals-wrapper', {
+            opacity: 0,
+            duration: 0.8,
         });
 
     mainTl.add(fraudTl).add(bubblesTl).add(animateSecondFraudAnimations);
