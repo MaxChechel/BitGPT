@@ -29,11 +29,11 @@ export default function pulseAnimation() {
     const tl = gsap
         .timeline({ repeat: -1 })
         .to('.pulse_circle', {
-            duration: 2,
+            duration: 4,
             scale: 5,
             opacity: 0,
 
-            ease: 'power1.inOut',
+            ease: 'circ.out',
             //stagger: { each: 0.25 },
         })
         .to(
