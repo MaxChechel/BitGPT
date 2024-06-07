@@ -34,7 +34,7 @@ export default function pulseAnimation() {
             opacity: 0,
 
             ease: 'power1.inOut',
-            stagger: { each: 0.25 },
+            //stagger: { each: 0.25 },
         })
         .to(
             '.pulse_logo',
