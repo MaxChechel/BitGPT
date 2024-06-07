@@ -125,10 +125,22 @@ export default function fraudAnimation() {
             opacity: 0,
             duration: 0.3,
         })
-        .to('.fraud-a_modal-2, .fraud-a_modals-wrapper', {
-            opacity: 0,
-            duration: 0.8,
-        });
+        .to(
+            '.fraud-a_modal-2',
+            {
+                opacity: 0,
+                duration: 0.3,
+            },
+            '<0%'
+        )
+        .to(
+            ' .fraud-a_modals-wrapper',
+            {
+                opacity: 0,
+                duration: 0.8,
+            },
+            '<50%'
+        );
 
     mainTl.add(fraudTl).add(bubblesTl).add(animateSecondFraudAnimations);
 
