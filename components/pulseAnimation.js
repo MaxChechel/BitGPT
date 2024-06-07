@@ -29,7 +29,7 @@ export default function pulseAnimation() {
     const tl = gsap
         .timeline({ repeat: -1 })
         .to('.pulse_circle', {
-            duration: 4,
+            duration: 3,
             scale: 5,
             opacity: 0,
 
@@ -62,7 +62,7 @@ export default function pulseAnimation() {
             '<20%'
         )
         .to('.pulse_overlay', {
-            duration: 1,
+            duration: 1.4,
             '--background-color--pulse-gradient': 'rgba(15, 15, 15, 0.95)',
         });
     //});
