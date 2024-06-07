@@ -30,7 +30,7 @@ export default function pulseAnimation() {
         .timeline({ repeat: -1 })
         .to('.pulse_circle', {
             duration: 2,
-            scale: 3,
+            scale: 5,
             opacity: 0,
 
             ease: 'power1.inOut',
