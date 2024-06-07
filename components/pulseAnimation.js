@@ -59,7 +59,7 @@ export default function pulseAnimation() {
                 duration: 0.6,
                 '--background-color--pulse-gradient': 'rgba(15, 15, 15, 0.8)',
             },
-            '<60%'
+            '<20%'
         )
         .to('.pulse_overlay', {
             duration: 1,
