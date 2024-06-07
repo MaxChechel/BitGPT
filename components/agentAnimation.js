@@ -162,7 +162,7 @@ export default function agentAnimation() {
             '<0%'
         )
         .to('[data-agent]', {
-            delay: 0.4,
+            delay: 1,
             opacity: 0,
         })
         .to('[data-agent]', {
