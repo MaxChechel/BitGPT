@@ -13,7 +13,7 @@ export default function pulseAnimation() {
 
     letters.forEach((letter) => {
         gsap.to(letter, {
-            duration: 0.2,
+            duration: 0.05,
             //delay: Math.random() * 2,
             repeat: -1,
             //repeatDelay: Math.random() * 5 + 2,
@@ -57,7 +57,7 @@ export default function pulseAnimation() {
             '.pulse_overlay',
             {
                 duration: 0.6,
-                '--background-color--pulse-gradient': 'rgba(15, 15, 15, 0.6)',
+                '--background-color--pulse-gradient': 'rgba(15, 15, 15, 0.8)',
             },
             '<60%'
         )
