@@ -87,7 +87,7 @@ export default function fraudAnimation() {
             '<60%'
         )
         .to('.fraud_cursor', {
-            delay: 0.2,
+            delay: 1.2,
             top: 12,
             opacity: 1,
             duration: 0.5,

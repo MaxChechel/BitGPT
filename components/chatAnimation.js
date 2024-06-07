@@ -43,12 +43,17 @@ export default function chatAnimation() {
             duration: 0,
         })
         .set("[data-chat='1']", {
-            opacity: 1,
-            height: 'auto',
+            opacity: 0,
+            duration: 0,
         })
         .set(chatInput, { text: { value: 'Ask anything...' }, opacity: 1 });
 
     chatTl
+        .to("[data-chat='1']", {
+            opacity: 1,
+            duration: 1,
+            height: 'auto',
+        })
         .to("[data-chat-1='img-1']", {
             delay: 1,
             duration: 0.5,
