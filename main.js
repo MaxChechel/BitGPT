@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
-import gradientText from './utils/gradientText';
 import chatAnimation from './components/chatAnimation';
 import agentAnimation from './components/agentAnimation';
 import llmAnimation from './components/llmAnimation';
@@ -305,45 +304,7 @@ sliderCards.forEach((slide, index) => {
         opacity: 1,
     });
 });
-//});
-//mm.add('(max-width: 991px)', () => {
-// ScrollTrigger.create({
-//     trigger: "[data-animation-card='evaluate']",
-//     start: 'top 50%',
-//     end: 'top 0%',
-//     invalidateOnRefresh: true,
-//     onEnter: () => {
-//         evaluateAnimation();
-//     },
-// });
-// ScrollTrigger.create({
-//     trigger: "[data-animation-card='contribute']",
-//     start: 'top 50%',
-//     end: 'top 0%',
-//     invalidateOnRefresh: true,
-//     onEnter: () => {
-//         contributeAnimation();
-//     },
-// });
-// ScrollTrigger.create({
-//     trigger: "[data-animation-card='vector']",
-//     start: 'top 50%',
-//     end: 'top 0%',
-//     invalidateOnRefresh: true,
-//     onEnter: () => {
-//         vectorStorageAnimation();
-//     },
-// });
-// ScrollTrigger.create({
-//     trigger: "[data-animation-card='compute']",
-//     start: 'top 50%',
-//     end: 'top 0%',
-//     invalidateOnRefresh: true,
-//     onEnter: () => {
-//         computeAnimation();
-//     },
-// });
-//});
+
 ////CHAT///////
 const mainChatTl = chatAnimation();
 ScrollTrigger.create({
@@ -385,17 +346,29 @@ ScrollTrigger.create({
 });
 
 ////Scan
-pulseAnimation();
-// const mainScanTl = scanAnimation();
-// ScrollTrigger.create({
-//     trigger: '[data-security-animation]',
-//     start: 'top 50%',
-//     end: 'bottom 60%',
-//     onEnter: () => mainScanTl.resume(),
-//     onLeave: () => mainScanTl.pause(),
-//     onEnterBack: () => mainScanTl.resume(),
-//     onLeaveBack: () => mainScanTl.pause(),
-// });
+const { letterAnimations, tl } = pulseAnimation();
+
+ScrollTrigger.create({
+    trigger: '.pulse_letters-wrap',
+    start: 'top 50%',
+    end: 'bottom 60%',
+    onEnter: () => {
+        letterAnimations.forEach((animation) => animation.play());
+        tl.play();
+    },
+    onLeave: () => {
+        letterAnimations.forEach((animation) => animation.pause());
+        tl.pause();
+    },
+    onEnterBack: () => {
+        letterAnimations.forEach((animation) => animation.play());
+        tl.play();
+    },
+    onLeaveBack: () => {
+        letterAnimations.forEach((animation) => animation.pause());
+        tl.pause();
+    },
+});
 
 ////Fraud
 const mainFraudTl = fraudAnimation();
@@ -411,22 +384,22 @@ ScrollTrigger.create({
 });
 
 /////Decentralized Model Registry////////
-gsap.set('.btn-border-path', {
-    drawSVG: '0% 50%',
-    opacity: 1,
-    duration: 3,
-    ease: 'none',
-});
-const btnGlowtween = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 0,
-});
-btnGlowtween.to('.btn-border-path', {
-    drawSVG: '100% 150%',
-    opacity: 1,
-    ease: 'none',
-    duration: 5,
-});
+// gsap.set('.btn-border-path', {
+//     drawSVG: '0% 50%',
+//     opacity: 1,
+//     duration: 3,
+//     ease: 'none',
+// });
+// const btnGlowtween = gsap.timeline({
+//     repeat: -1,
+//     repeatDelay: 0,
+// });
+// btnGlowtween.to('.btn-border-path', {
+//     drawSVG: '100% 150%',
+//     opacity: 1,
+//     ease: 'none',
+//     duration: 5,
+// });
 // .to(
 //     '.btn-bg-path',
 //     {
@@ -441,4 +414,4 @@ btnGlowtween.to('.btn-border-path', {
 //     duration: 1.4,
 //     ease: 'power2.out',
 // });
-btnGlowtween.play();
+//btnGlowtween.play();

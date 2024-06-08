@@ -6,10 +6,26 @@ gsap.registerPlugin(MotionPathPlugin);
 export default function computeAnimation() {
     const pathSvgs = document.querySelectorAll('.compute-paths');
 
+    const numbers = document.querySelectorAll('.binary-number');
+    const symbols = '011001101';
+
+    function getRandomSymbol() {
+        return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+
+    numbers.forEach((num) => {
+        gsap.to(num, {
+            duration: 0.05,
+            repeat: -1,
+            onRepeat: function () {
+                num.textContent = getRandomSymbol();
+            },
+        });
+    });
+
     pathSvgs.forEach((svg, i) => {
         const path = svg.querySelector('.compute-path');
         const line = svg.querySelector('.compute-line');
-        const pathLength = path.getTotalLength();
         const timeToPlay = Math.floor(Math.random() * 4) + 2;
         const timeDelay = Math.floor(Math.random() * 3) + 1;
 
