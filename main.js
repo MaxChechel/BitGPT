@@ -1,6 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { DrawSVGPlugin } from 'gsap/all';
 
+import circuitBoardAnimation from './components/circuitBoardAnimation';
 import chatAnimation from './components/chatAnimation';
 import agentAnimation from './components/agentAnimation';
 import llmAnimation from './components/llmAnimation';
@@ -10,8 +12,12 @@ import computeAnimation from './components/computeAnimation';
 import contributeAnimation from './components/contributeAnimation';
 import vectorStorageAnimation from './components/vectorStorageAnimations';
 import evaluateAnimation from './components/evaluateAnimation';
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
+//  Circuit animation for hero section
+circuitBoardAnimation('.section-hero-bg_img .circuit-lines-group path');
+//  Circuit animation for CTA section
+circuitBoardAnimation('.section-cta-bg_img .circuit-lines-group path');
 //////Hero loader
 document.fonts
     .load('1em "Plus Jakarta Sans"')
@@ -304,6 +310,25 @@ sliderCards.forEach((slide, index) => {
         opacity: 1,
     });
 });
+const binaryTtimelines = computeAnimation();
+ScrollTrigger.create({
+    trigger: '.section_decentralization',
+    start: 'top 50%',
+    end: 'bottom 30%',
+    invalidateOnRefresh: true,
+    onLeave: () => {
+        binaryTtimelines.forEach((timeline) => timeline.pause());
+    },
+    onLeaveBack: () => {
+        binaryTtimelines.forEach((timeline) => timeline.pause());
+    },
+    onEnter: () => {
+        binaryTtimelines.forEach((timeline) => timeline.play());
+    },
+    onEnterBack: () => {
+        binaryTtimelines.forEach((timeline) => timeline.play());
+    },
+});
 
 ////CHAT///////
 const mainChatTl = chatAnimation();
@@ -338,20 +363,20 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: '[data-llm-animation]',
     start: 'top 50%',
-    end: 'bottom 60%',
+    end: 'bottom 50%',
     invalidateOnRefresh: true,
     onEnter: () => {
         llmAnimation();
     },
 });
 
-////Scan
+////Enhanced Privacy
 const { letterAnimations, tl } = pulseAnimation();
 
 ScrollTrigger.create({
     trigger: '.pulse_letters-wrap',
     start: 'top 50%',
-    end: 'bottom 60%',
+    end: 'bottom 50%',
     onEnter: () => {
         letterAnimations.forEach((animation) => animation.play());
         tl.play();
@@ -375,7 +400,7 @@ const mainFraudTl = fraudAnimation();
 ScrollTrigger.create({
     trigger: '[data-security-animation]',
     start: 'top 50%',
-    end: 'bottom 60%',
+    end: 'bottom 50%',
     invalidateOnRefresh: true,
     onEnter: () => mainFraudTl.play(),
     onLeave: () => mainFraudTl.pause(),
