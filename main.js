@@ -269,7 +269,7 @@ ScrollTrigger.create({
         '+=' +
         document.querySelector('.horizontal-scroll_track').offsetWidth * 2,
     animation: horizontalScrollTween,
-    scrub: 2,
+    scrub: 1.1,
     invalidateOnRefresh: true,
     pin: true,
 });
@@ -310,25 +310,6 @@ sliderCards.forEach((slide, index) => {
         opacity: 1,
     });
 });
-// const binaryTtimelines = computeAnimation();
-// ScrollTrigger.create({
-//     trigger: '.section_decentralization',
-//     start: 'top 50%',
-//     end: 'bottom 30%',
-//     invalidateOnRefresh: true,
-//     onLeave: () => {
-//         binaryTtimelines.forEach((timeline) => timeline.pause());
-//     },
-//     onLeaveBack: () => {
-//         binaryTtimelines.forEach((timeline) => timeline.pause());
-//     },
-//     onEnter: () => {
-//         binaryTtimelines.forEach((timeline) => timeline.play());
-//     },
-//     onEnterBack: () => {
-//         binaryTtimelines.forEach((timeline) => timeline.play());
-//     },
-// });
 
 ////CHAT///////
 const mainChatTl = chatAnimation();
@@ -350,7 +331,7 @@ const mainAgentTl = agentAnimation();
 ScrollTrigger.create({
     trigger: '[data-agent-animation]',
     start: 'top 50%',
-    end: 'bottom 60%',
+    end: 'bottom 50%',
     invalidateOnRefresh: true,
     onEnter: () => mainAgentTl.play(),
     onLeave: () => mainAgentTl.pause(),
