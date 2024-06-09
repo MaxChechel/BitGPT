@@ -8,14 +8,13 @@ export default function computeAnimation() {
 
     const numbers = document.querySelectorAll('.binary-number');
     const symbols = '011001101';
-    const binaryTtimelines = []; // Array to store timelines
 
     function getRandomSymbol() {
         return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
     numbers.forEach((num) => {
-        const tl = gsap.timeline({ paused: true }); // Create a timeline for each number
+        const tl = gsap.timeline(); // Create a timeline for each number
         tl.to(num, {
             duration: 0.05,
             repeat: -1,
@@ -23,8 +22,6 @@ export default function computeAnimation() {
                 num.textContent = getRandomSymbol();
             },
         });
-        num.tl = tl; // Assign the timeline to the element
-        binaryTtimelines.push(tl); // Push the timeline into the array
     });
 
     pathSvgs.forEach((svg, i) => {
@@ -60,5 +57,4 @@ export default function computeAnimation() {
         });
         tween.play();
     });
-    return binaryTtimelines;
 }
