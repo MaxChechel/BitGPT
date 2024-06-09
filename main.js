@@ -310,25 +310,25 @@ sliderCards.forEach((slide, index) => {
         opacity: 1,
     });
 });
-const binaryTtimelines = computeAnimation();
-ScrollTrigger.create({
-    trigger: '.section_decentralization',
-    start: 'top 50%',
-    end: 'bottom 30%',
-    invalidateOnRefresh: true,
-    onLeave: () => {
-        binaryTtimelines.forEach((timeline) => timeline.pause());
-    },
-    onLeaveBack: () => {
-        binaryTtimelines.forEach((timeline) => timeline.pause());
-    },
-    onEnter: () => {
-        binaryTtimelines.forEach((timeline) => timeline.play());
-    },
-    onEnterBack: () => {
-        binaryTtimelines.forEach((timeline) => timeline.play());
-    },
-});
+// const binaryTtimelines = computeAnimation();
+// ScrollTrigger.create({
+//     trigger: '.section_decentralization',
+//     start: 'top 50%',
+//     end: 'bottom 30%',
+//     invalidateOnRefresh: true,
+//     onLeave: () => {
+//         binaryTtimelines.forEach((timeline) => timeline.pause());
+//     },
+//     onLeaveBack: () => {
+//         binaryTtimelines.forEach((timeline) => timeline.pause());
+//     },
+//     onEnter: () => {
+//         binaryTtimelines.forEach((timeline) => timeline.play());
+//     },
+//     onEnterBack: () => {
+//         binaryTtimelines.forEach((timeline) => timeline.play());
+//     },
+// });
 
 ////CHAT///////
 const mainChatTl = chatAnimation();
