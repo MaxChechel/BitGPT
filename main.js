@@ -262,7 +262,7 @@ cards.forEach((card, index) => {
         scrollTrigger: {
             trigger: card,
             start: 'top 80%',
-            end: 'top 80%',
+            end: 'top top',
             scrub: 1.05,
             invalidateOnRefresh: true,
             onEnter: () => {
