@@ -244,11 +244,17 @@ document.fonts
 
 //Horizontal scroll
 const cards = document.querySelectorAll('.horizontal-scroll_card-wrap');
-
+let mm = gsap.matchMedia();
 cards.forEach((card, index) => {
     gsap.set(card, {
         top: 40 + index * 40,
         scale: 0.9,
+    });
+    mm.add('(max-width: 991px)', () => {
+        gsap.set(card, {
+            top: 40 + index * 10,
+            scale: 0.95,
+        });
     });
     const innerCard = card.querySelector('.card-row_card');
 
