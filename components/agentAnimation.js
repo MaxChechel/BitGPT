@@ -34,8 +34,8 @@ export default function agentAnimation() {
             {
                 opacity: 1,
                 height: 'auto',
-                paddingTop: '1rem',
-                paddingBottom: '1rem',
+                paddingTop: '0.75rem',
+                paddingBottom: '0.75rem',
                 duration: 0,
             }
         )

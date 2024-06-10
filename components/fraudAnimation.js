@@ -12,10 +12,6 @@ export default function fraudAnimation() {
 
     const fraudTl = gsap.timeline({ defaults: { ease: 'circ.out' } });
 
-    const initialStyles = gsap.timeline();
-
-    //initialStyles.set('.fraud-a_modals-wrapper', {});
-
     const bubblesTl = gsap.timeline({ repeat: 2 });
     const bubbles = fraud.querySelectorAll('.chat-bubbles');
 

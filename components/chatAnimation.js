@@ -38,8 +38,8 @@ export default function chatAnimation() {
         .set('.chat-animation .chat-a_chat-wrap.is-bubbles', {
             opacity: 1,
             height: 'auto',
-            paddingTop: '1rem',
-            paddingBottom: '1rem',
+            paddingTop: '0.75rem',
+            paddingBottom: '0.75rem',
             duration: 0,
         })
         .set("[data-chat='1']", {

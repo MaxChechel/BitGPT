@@ -388,36 +388,3 @@ ScrollTrigger.create({
     onEnterBack: () => mainFraudTl.play(),
     onLeaveBack: () => mainFraudTl.pause(),
 });
-
-/////Decentralized Model Registry////////
-// gsap.set('.btn-border-path', {
-//     drawSVG: '0% 50%',
-//     opacity: 1,
-//     duration: 3,
-//     ease: 'none',
-// });
-// const btnGlowtween = gsap.timeline({
-//     repeat: -1,
-//     repeatDelay: 0,
-// });
-// btnGlowtween.to('.btn-border-path', {
-//     drawSVG: '100% 150%',
-//     opacity: 1,
-//     ease: 'none',
-//     duration: 5,
-// });
-// .to(
-//     '.btn-bg-path',
-//     {
-//         fillOpacity: 0.12,
-//         duration: 0.8,
-//         ease: 'power2.out',
-//     },
-//     0
-// )
-// .to('.btn-bg-path', {
-//     fillOpacity: 0.04,
-//     duration: 1.4,
-//     ease: 'power2.out',
-// });
-//btnGlowtween.play();

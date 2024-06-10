@@ -9,14 +9,13 @@ export default function circuitBoardAnimation(pathsSelector) {
 
     circuitPaths.forEach((svg) => {
         const pathLength = svg.getTotalLength();
-        const timeToPlay = Math.random() * 1 + pathLength / 20; // Shorter play time
-        const timeDelay = Math.random() * 0.2; // Smaller random delay
-
+        const timeToPlay = Math.random() * 1 + pathLength / 70;
+        const timeDelay = Math.random() * 5 + 0.5;
         const tween = gsap.timeline({
             delay: timeDelay,
-            duration: timeToPlay,
+            repeatDelay: timeDelay * 2,
             repeat: -1,
-            repeatDelay: 0,
+            duration: timeToPlay,
         });
 
         tween
@@ -26,9 +25,15 @@ export default function circuitBoardAnimation(pathsSelector) {
                     ease: 'none',
                     drawSVG: 0,
                 },
-                { drawSVG: '0% 100%', ease: 'power2.in' }
+                {
+                    drawSVG: '0% 100%',
+                    ease: 'power2.in',
+                }
             )
-            .to(svg, { drawSVG: '100% 100%', ease: 'circ.out' });
+            .to(svg, {
+                drawSVG: '100% 100%',
+                ease: 'circ.out',
+            });
         circuitPathsTweens.push(tween);
     });
 
