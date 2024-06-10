@@ -86,7 +86,7 @@ document.fonts
             const text = section.querySelector('p');
             ScrollTrigger.create({
                 trigger: section,
-                start: 'top 60%',
+                start: 'top 75%',
                 end: 'top 50%',
                 invalidateOnRefresh: true,
                 onEnter: () => {
