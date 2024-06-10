@@ -253,6 +253,7 @@ cards.forEach((card, index) => {
     mm.add('(max-width: 479px)', () => {
         gsap.set(card, {
             top: 220 + index * 10,
+            scale: 1,
         });
     });
     const innerCard = card.querySelector('.card-row_card');
@@ -260,7 +261,7 @@ cards.forEach((card, index) => {
     const tween = gsap.to(card, {
         scrollTrigger: {
             trigger: card,
-            start: 'top top',
+            start: 'top 80%',
             //end: () => `top 50%`,
             scrub: 1.05,
             invalidateOnRefresh: true,
