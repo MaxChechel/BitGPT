@@ -242,74 +242,123 @@ document.fonts
         console.log('Font failed to load');
     });
 
-const slider = document.querySelector('.horizontal-scroll_track');
+//Horizontal scroll
+const cards = document.querySelectorAll('.horizontal-scroll_card-wrap');
 
-const sliderCards = slider.querySelectorAll(
-    '.horizontal-scroll_card-wrap:not(:first-child) .card-row_card'
-);
-let mm = gsap.matchMedia();
+cards.forEach((card, index) => {
+    gsap.set(card, {
+        top: 40 + index * 40,
+        scale: 0.9,
+    });
+    const innerCard = card.querySelector('.card-row_card');
 
-const horizontalScrollTween = gsap.to(slider, {
-    x: () => slider.scrollWidth * -1,
-    xPercent: 100,
-    ease: 'none',
-});
-let horizTrigger = document.querySelector('.decentralization_slider-wrap');
-mm.add('(max-width: 991px)', () => {
-    horizTrigger = document.querySelector('.section_decentralization');
-});
-gsap.set(sliderCards, {
-    scale: 0.9,
-    opacity: 0.3,
-});
-ScrollTrigger.create({
-    trigger: horizTrigger,
-    start: 'top 0',
-    end: () =>
-        '+=' +
-        document.querySelector('.horizontal-scroll_track').offsetWidth * 2,
-    animation: horizontalScrollTween,
-    scrub: 1.1,
-    invalidateOnRefresh: true,
-    pin: true,
-});
-
-ScrollTrigger.create({
-    trigger: '.horizontal-scroll_track',
-    start: 'top 50%',
-    end: 'top 0%',
-    invalidateOnRefresh: true,
-    onEnter: () => {
-        evaluateAnimation();
-    },
-});
-
-sliderCards.forEach((slide, index) => {
-    const tl = gsap.timeline({
+    const tween = gsap.to(card, {
         scrollTrigger: {
-            scrub: 1.5,
-            containerAnimation: horizontalScrollTween,
-            trigger: slide,
-            start: 'left 50%',
-            end: 'right 100%',
-            toggleActions: 'play none none reverse',
+            trigger: card,
+            start: () => `top bottom-=100`,
+            end: () => `top top+=40`,
+            scrub: 1.05,
+            markers: true,
             invalidateOnRefresh: true,
             onEnter: () => {
-                if (slide.getAttribute('data-animation-card') === 'contribute')
+                if (
+                    innerCard.getAttribute('data-animation-card') === 'evaluate'
+                )
+                    evaluateAnimation();
+                if (
+                    innerCard.getAttribute('data-animation-card') ===
+                    'contribute'
+                )
                     contributeAnimation();
-                if (slide.getAttribute('data-animation-card') === 'vector')
+                if (innerCard.getAttribute('data-animation-card') === 'vector')
                     vectorStorageAnimation();
-                if (slide.getAttribute('data-animation-card') === 'compute')
+                if (innerCard.getAttribute('data-animation-card') === 'compute')
                     computeAnimation();
             },
         },
+        ease: 'none',
+        scale: 1,
     });
 
-    tl.to(slide, {
-        scale: 1,
-        opacity: 1,
-    });
+    // ScrollTrigger.create({
+    //     trigger: card,
+    //     start: 'top top',
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: true,
+    //     id: 'pin',
+    //     end: 'max',
+    //     invalidateOnRefresh: true,
+    // });
 });
+// const slider = document.querySelector('.horizontal-scroll_track');
+
+// const sliderCards = slider.querySelectorAll(
+//     '.horizontal-scroll_card-wrap:not(:first-child) .card-row_card'
+// );
+// let mm = gsap.matchMedia();
+
+// const horizontalScrollTween = gsap.to(slider, {
+//     x: () => slider.scrollWidth * -1,
+//     xPercent: 100,
+//     ease: 'none',
+// });
+// let horizTrigger = document.querySelector('.decentralization_slider-wrap');
+// mm.add('(max-width: 991px)', () => {
+//     horizTrigger = document.querySelector('.section_decentralization');
+// });
+// gsap.set(sliderCards, {
+//     scale: 0.9,
+//     opacity: 0.3,
+// });
+// ScrollTrigger.create({
+//     trigger: horizTrigger,
+//     start: 'top 0',
+//     end: () =>
+//         '+=' +
+//         document.querySelector('.horizontal-scroll_track').offsetWidth * 2,
+//     animation: horizontalScrollTween,
+//     scrub: 1.1,
+//     invalidateOnRefresh: true,
+//     pin: true,
+// });
+
+// ScrollTrigger.create({
+//     trigger: '.horizontal-scroll_track',
+//     start: 'top 50%',
+//     end: 'top 0%',
+//     invalidateOnRefresh: true,
+//     onEnter: () => {
+//         evaluateAnimation();
+//     },
+// });
+
+// sliderCards.forEach((slide, index) => {
+//     const tl = gsap.timeline({
+//         scrollTrigger: {
+//             scrub: 1.5,
+//             containerAnimation: horizontalScrollTween,
+//             trigger: slide,
+//             start: 'left 50%',
+//             end: 'right 100%',
+//             toggleActions: 'play none none reverse',
+//             invalidateOnRefresh: true,
+//             onEnter: () => {
+//                 if (slide.getAttribute('data-animation-card') === 'contribute')
+//                     contributeAnimation();
+//                 if (slide.getAttribute('data-animation-card') === 'vector')
+//                     vectorStorageAnimation();
+//                 if (slide.getAttribute('data-animation-card') === 'compute')
+//                     computeAnimation();
+//             },
+//         },
+//     });
+
+//     tl.to(slide, {
+//         scale: 1,
+//         opacity: 1,
+//     });
+// });
 
 ////CHAT///////
 const mainChatTl = chatAnimation();
