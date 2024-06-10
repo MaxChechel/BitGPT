@@ -260,8 +260,8 @@ cards.forEach((card, index) => {
     const tween = gsap.to(card, {
         scrollTrigger: {
             trigger: card,
-            start: () => `top top`,
-            end: () => `top 50%`,
+            start: 'top top',
+            //end: () => `top 50%`,
             scrub: 1.05,
             invalidateOnRefresh: true,
             onEnter: () => {
