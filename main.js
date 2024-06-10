@@ -291,7 +291,7 @@ mm.add('(max-width: 479px)', () => {
             trigger: '.section-heading_wrapper.is-cards',
             start: 'top 20',
             endTrigger: '.last-card',
-            end: 'top 260',
+            end: 'top 280',
             pin: true,
             pinSpacing: false,
             scrub: 1,
