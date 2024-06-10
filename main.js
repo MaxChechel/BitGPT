@@ -252,7 +252,7 @@ cards.forEach((card, index) => {
     });
     mm.add('(max-width: 479px)', () => {
         gsap.set(card, {
-            top: 220 + index * 10,
+            top: 240 + index * 10,
             scale: 1,
         });
     });
@@ -291,7 +291,7 @@ mm.add('(max-width: 479px)', () => {
             trigger: '.section-heading_wrapper.is-cards',
             start: 'top 20',
             endTrigger: '.last-card',
-            end: 'top 280',
+            end: 'top 270',
             pin: true,
             pinSpacing: false,
             scrub: 1,
