@@ -247,7 +247,7 @@ const cards = document.querySelectorAll('.horizontal-scroll_card-wrap');
 let mm = gsap.matchMedia();
 cards.forEach((card, index) => {
     gsap.set(card, {
-        top: 24 + index * 20,
+        top: 80 + index * 20,
         scale: 0.9,
     });
     mm.add('(max-width: 479px)', () => {
