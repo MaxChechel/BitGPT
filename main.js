@@ -258,7 +258,6 @@ cards.forEach((card, index) => {
             start: () => `top bottom-=100`,
             end: () => `top top+=40`,
             scrub: 1.05,
-            markers: true,
             invalidateOnRefresh: true,
             onEnter: () => {
                 if (
