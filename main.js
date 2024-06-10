@@ -86,7 +86,7 @@ document.fonts
             const text = section.querySelector('p');
             ScrollTrigger.create({
                 trigger: section,
-                start: 'top 75%',
+                start: 'top 60%',
                 end: 'top 50%',
                 invalidateOnRefresh: true,
                 onEnter: () => {
@@ -247,13 +247,13 @@ const cards = document.querySelectorAll('.horizontal-scroll_card-wrap');
 let mm = gsap.matchMedia();
 cards.forEach((card, index) => {
     gsap.set(card, {
-        top: 40 + index * 40,
+        top: 24 + index * 20,
         scale: 0.9,
     });
-    mm.add('(max-width: 991px)', () => {
+    mm.add('(max-width: 479px)', () => {
         gsap.set(card, {
-            top: 40 + index * 10,
-            scale: 0.95,
+            top: 220 + index * 10,
+            scale: 0.9,
         });
     });
     const innerCard = card.querySelector('.card-row_card');
@@ -284,18 +284,26 @@ cards.forEach((card, index) => {
         ease: 'none',
         scale: 1,
     });
-
-    // ScrollTrigger.create({
-    //     trigger: card,
-    //     start: 'top top',
-    //     pin: true,
-    //     pinSpacing: false,
-    //     markers: true,
-    //     id: 'pin',
-    //     end: 'max',
-    //     invalidateOnRefresh: true,
-    // });
 });
+mm.add('(max-width: 479px)', () => {
+    gsap.to('.section-heading_wrapper.is-cards', {
+        scrollTrigger: {
+            trigger: '.section-heading_wrapper.is-cards',
+            start: 'top 20',
+            endTrigger: '.last-card',
+            end: 'top 260',
+            pin: true,
+            pinSpacing: false,
+            scrub: 1,
+            onLeaveBack: () => {
+                gsap.set('.section-heading_wrapper.is-cards', {
+                    clearProps: 'position',
+                });
+            },
+        },
+    });
+});
+
 // const slider = document.querySelector('.horizontal-scroll_track');
 
 // const sliderCards = slider.querySelectorAll(
