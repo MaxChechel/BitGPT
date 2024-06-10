@@ -253,7 +253,6 @@ cards.forEach((card, index) => {
     mm.add('(max-width: 479px)', () => {
         gsap.set(card, {
             top: 220 + index * 10,
-            scale: 0.9,
         });
     });
     const innerCard = card.querySelector('.card-row_card');
