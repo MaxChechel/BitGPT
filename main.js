@@ -265,7 +265,7 @@ cards.forEach((card, index) => {
             end: () => `top bottom`,
             scrub: 1.05,
             invalidateOnRefresh: true,
-            endTrigger: '.last-card',
+            endTrigger: '.end-elem',
             onEnter: () => {
                 if (
                     innerCard.getAttribute('data-animation-card') === 'evaluate'
