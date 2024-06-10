@@ -261,10 +261,9 @@ cards.forEach((card, index) => {
         scrollTrigger: {
             trigger: card,
             start: () => `top top`,
-            end: () => `top bottom`,
+            end: () => `bottom bottom`,
             scrub: 1.05,
             invalidateOnRefresh: true,
-            endTrigger: '.end-elem',
             onEnter: () => {
                 if (
                     innerCard.getAttribute('data-animation-card') === 'evaluate'
