@@ -32,8 +32,6 @@ export default function circuitBoardAnimation(pathsSelector) {
                 drawSVG: '100% 100%',
                 ease: 'circ.out',
             });
-
-        // Add each tween to the master timeline, starting at the same time
-        masterTimeline.add(tween, 0);
+        tween.play();
     });
 }
