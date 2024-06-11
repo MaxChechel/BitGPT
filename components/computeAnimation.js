@@ -7,7 +7,7 @@ export default function computeAnimation() {
     const pathSvgs = document.querySelectorAll('.compute-paths');
 
     const numbers = document.querySelectorAll('.binary-number');
-    const symbols = '011001101';
+    const symbols = '0101';
 
     function getRandomSymbol() {
         return symbols[Math.floor(Math.random() * symbols.length)];
