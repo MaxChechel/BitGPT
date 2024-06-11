@@ -16,7 +16,7 @@ export default function computeAnimation() {
     numbers.forEach((num) => {
         const tl = gsap.timeline(); // Create a timeline for each number
         tl.to(num, {
-            duration: 0.1,
+            duration: 0.05,
             repeat: -1,
             onRepeat: function () {
                 num.textContent = getRandomSymbol();
