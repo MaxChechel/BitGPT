@@ -12,7 +12,6 @@ export default function circuitBoardAnimation(pathsSelector) {
         const timeToPlay = pathLength / 40;
 
         const tween = gsap.timeline({
-            defaults: {},
             repeat: -1,
             duration: timeToPlay,
         });
