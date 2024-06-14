@@ -8,14 +8,18 @@ export default function circuitBoardAnimation(pathsSelector) {
 
     circuitPaths.forEach((svg) => {
         const pathLength = svg.getTotalLength();
-        const timeToPlay = pathLength / 30;
-        const repeatDelay = gsap.utils.random(0.3, 1, 0.1);
+        const timeToPlay = pathLength / 200;
+        const repeatDelay = gsap.utils.random(1, 3, 0.1);
 
         const tween = gsap.timeline({
-            delay: 0,
+            delay: repeatDelay,
             repeat: -1,
-            duration: timeToPlay,
+            //duration: gsap.utils.random(4, 6, 0.2),
             repeatDelay: repeatDelay,
+            defaults: {
+                duration: timeToPlay,
+                ease: 'none',
+            },
         });
 
         tween
