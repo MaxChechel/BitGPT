@@ -122,6 +122,51 @@ document.fonts
             });
         });
 
+        //Mobile section
+        const mobileSection = document.querySelector('.section_mobile');
+
+        ScrollTrigger.create({
+            trigger: mobileSection,
+            start: 'top 50%',
+            end: 'top 40%',
+            invalidateOnRefresh: true,
+            onEnter: () => {
+                const tl = gsap.timeline();
+                tl.to('.mobile_image-mockup', {
+                    duration: 2,
+                    opacity: 1,
+                    ease: 'power2.out',
+                });
+            },
+        });
+        ScrollTrigger.create({
+            trigger: '.mobile_heading',
+            start: 'top 70%',
+            end: 'top 50%',
+            invalidateOnRefresh: true,
+            onEnter: () => {
+                const tl = gsap.timeline();
+                tl.to('.mobile_heading .heading-span-line', {
+                    duration: 0.5,
+                    ease: 'circ.out',
+                    y: '0%',
+                    opacity: 1,
+                    stagger: { each: 0.025 },
+                    transformOrigin: 'center bottom',
+                    rotationX: 0,
+                }).to(
+                    '.section_mobile .glowing-wrapper',
+                    {
+                        duration: 0.5,
+                        ease: 'circ.out',
+                        opacity: 1,
+                        y: '0%',
+                    },
+                    '<25%'
+                );
+            },
+        });
+
         //Feature sections
 
         const sectionFeature = document.querySelectorAll('.feature_component');
