@@ -25,7 +25,7 @@ document.fonts
         const heroTl = gsap.timeline();
 
         heroTl
-            .to('.hero-heading .hero-span-line', {
+            .to('.hero-heading .heading-span-line', {
                 delay: 0.2,
                 duration: 0.5,
                 ease: 'circ.out',
